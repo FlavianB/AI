@@ -1,0 +1,11 @@
+type,group,duration,professor,assigned_time
+Lecture,G2,2,Dr. Smith,None
+Lab,G2,2,Prof. Johnson,None
+Lecture,G3,2,Dr. Brown,None
+Lab,G4,2,Prof. Miller,None
+Lecture,G1,2,Dr. Davis,None
+Lab,G2,2,Prof. Garcia,None
+Lecture,G3,2,Dr. Martinez,None
+Lab,G4,2,Prof. Robinson,None
+Lecture,G5,2,Dr. Clark,None
+Lab,G6,2,Prof. Walker,None

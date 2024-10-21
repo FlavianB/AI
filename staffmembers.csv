@@ -1,0 +1,11 @@
+name,type,availability,break_time,events
+Dr. Smith,Professor,{"Monday": ["08:00-20:00"], "Tuesday": ["08:00-20:00"], "Wednesday": ["08:00-20:00"], "Thursday": ["08:00-20:00"], "Friday": ["08:00-20:00"]},0,[]
+Prof. Johnson,Assistant,{"Monday": ["08:00-20:00"], "Tuesday": ["08:00-20:00"], "Wednesday": ["08:00-20:00"], "Thursday": ["08:00-20:00"], "Friday": ["08:00-20:00"]},0,[]
+Dr. Brown,Professor,{"Monday": ["08:00-20:00"], "Tuesday": ["08:00-20:00"], "Wednesday": ["08:00-20:00"], "Thursday": ["08:00-20:00"], "Friday": ["08:00-20:00"]},0,[]
+Prof. Miller,Assistant,{"Monday": ["08:00-20:00"], "Tuesday": ["08:00-20:00"], "Wednesday": ["08:00-20:00"], "Thursday": ["08:00-20:00"], "Friday": ["08:00-20:00"]},0,[]
+Dr. Davis,Professor,{"Monday": ["08:00-20:00"], "Tuesday": ["08:00-20:00"], "Wednesday": ["08:00-20:00"], "Thursday": ["08:00-20:00"], "Friday": ["08:00-20:00"]},0,[]
+Prof. Garcia,Assistant,{"Monday": ["08:00-20:00"], "Tuesday": ["08:00-20:00"], "Wednesday": ["08:00-20:00"], "Thursday": ["08:00-20:00"], "Friday": ["08:00-20:00"]},0,[]
+Dr. Martinez,Professor,{"Monday": ["08:00-20:00"], "Tuesday": ["08:00-20:00"], "Wednesday": ["08:00-20:00"], "Thursday": ["08:00-20:00"], "Friday": ["08:00-20:00"]},0,[]
+Prof. Robinson,Assistant,{"Monday": ["08:00-20:00"], "Tuesday": ["08:00-20:00"], "Wednesday": ["08:00-20:00"], "Thursday": ["08:00-20:00"], "Friday": ["08:00-20:00"]},0,[]
+Dr. Clark,Professor,{"Monday": ["08:00-20:00"], "Tuesday": ["08:00-20:00"], "Wednesday": ["08:00-20:00"], "Thursday": ["08:00-20:00"], "Friday": ["08:00-20:00"]},0,[]
+Prof. Walker,Assistant,{"Monday": ["08:00-20:00"], "Tuesday": ["08:00-20:00"], "Wednesday": ["08:00-20:00"], "Thursday": ["08:00-20:00"], "Friday": ["08:00-20:00"]},0,[]

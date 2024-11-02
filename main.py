@@ -1,6 +1,9 @@
 import json
-
+from models.classroom import Classroom
 # Here we have the basic availability for the classrooms and instructors
+x = Classroom.create(id_='C201', type_='Lecturea')
+print (x)
+exit()
 basic_availability = {
     "Monday": ["08:00-10:00", "10:00-12:00", "12:00-14:00", "14:00-16:00", "16:00-18:00", "18:00-20:00"],
     "Tuesday": ["08:00-10:00", "10:00-12:00", "12:00-14:00", "14:00-16:00", "16:00-18:00", "18:00-20:00"],
@@ -10,20 +13,20 @@ basic_availability = {
 }
 
 
-class Classroom:
-    availability = basic_availability
+# class Classroom:
+#     availability = basic_availability
 
-    def __init__(self, id, type):
-        self.id = id
-        self.type = type
+#     def __init__(self, id, type):
+#         self.id = id
+#         self.type = type
 
-    def __str__(self):
-        availability_str = "\n".join([f"{day}: {', '.join(intervals)}" for day, intervals in self.availability.items()])
-        return (
-            f"Classroom: {self.id}\n"
-            f"Type: {self.type}\n"
-            f"Availability:\n{availability_str}"
-        )
+#     def __str__(self):
+#         availability_str = "\n".join([f"{day}: {', '.join(intervals)}" for day, intervals in self.availability.items()])
+#         return (
+#             f"Classroom: {self.id}\n"
+#             f"Type: {self.type}\n"
+#             f"Availability:\n{availability_str}"
+#         )
 
 
 class Event:

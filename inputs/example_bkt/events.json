@@ -1,11 +1,11 @@
 {
   "events": [
     {
-      "name_" : "A5-TPM",
-      "semester_": 1,
-      "optional_package_": "1",
-      "primary_instructors_": ["1"],
-      "secondary_instructors_": ["1"]
+      "name" : "A5-TPM",
+      "semester": 1,
+      "optional_package": "1",
+      "primary_instructors": ["1"],
+      "secondary_instructors": ["1"]
     }
   ]
 }

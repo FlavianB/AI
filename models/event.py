@@ -28,7 +28,6 @@ class Event:
         self.__name = name
         self.__semester = semester
         self.__optional_package = optional_package
-  
 
     def get_id(self) -> str:
         return self.__id

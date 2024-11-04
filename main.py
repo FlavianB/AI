@@ -1,5 +1,5 @@
 import json
-from io_utils.reading_bkt import read_classrooms, read_staff_members
+from io_utils.reading_bkt import read_classrooms, read_staff_members, read_events
 from models.classroom import Classroom
 from models.constants import Day
 # Here we have the basic availability for the classrooms and instructors
@@ -65,16 +65,22 @@ if classrooms is None:
     exit(0)
 print (classrooms[0])
 
+print("-----------------------------------------------------------")
+
 staff_members = read_staff_members('example_bkt')
 if staff_members is None:
     exit(0)
 print(staff_members[0])
 
+print("-----------------------------------------------------------")
+
+events = read_events('example_bkt')
+if events is None:
+    exit(0)
+print(events[0])
+
 
 exit(0)
-f = open('events.json')
-events_data = json.load(f)
-events = [Event(**event) for event in events_data['events']]
 
 def process_soft_constraints(constraints_file):
     f = open(constraints_file)

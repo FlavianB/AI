@@ -5,6 +5,7 @@ from returns.pipeline import is_successful
 from returns.result import Success
 from models.classroom import Classroom
 from models.staff_member import StaffMember
+from models.events import Event
 
 def read_classrooms(data_set_path: str) -> Optional[list[Classroom]]:
     is_valid = True
@@ -27,5 +28,27 @@ def read_staff_members(data_set_path: str) -> Optional[list[StaffMember]]:
         if(not is_successful(staff_member)):
             is_valid = False
             print(staff_member.failure())
-    
+
     return None if not is_valid else [staff_member.unwrap() for staff_member in staff_members]
+
+# Using results:
+# def read_events(data_set_path: str) -> Optional[list[Event]]:
+#     is_valid = True
+#     f = open(f'inputs/{data_set_path}/events.json')
+#     events_data = json.load(f)
+#     events = [Event.create(**event) for event in events_data['events']]
+#     for event in events:
+#         if (not is_successful(event)):
+#             is_valid = False
+#             print(event.failure())
+    
+#     return None if not is_valid else [event.unwrap() for event in events]
+
+
+# Without results:
+def read_events(data_set_path: str) -> list[Event]:
+    f = open(f'inputs/{data_set_path}/events.json')
+    events_data = json.load(f)
+    events = [Event.create(**event) for event in events_data['events']]
+    
+    return events

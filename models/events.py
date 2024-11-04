@@ -12,14 +12,14 @@ class Event:
     __secondary_instructors: list[int]
 
     @staticmethod
-    def create(name: str, semester: int, optional_package: int, 
-               primary_instructors: list[int], secondary_instructors: list[int]) -> "Event":
-        clas = Event(name, semester, optional_package)
+    def create(name_: str, semester_: int, optional_package_: int, 
+               primary_instructors_: list[int], secondary_instructors_: list[int]) -> "Event":
+        clas = Event(name_, semester_, optional_package_)
         # Here should be a validation that the ids actually exists.
         # Needs to have the list of instructors available.
         # This function will also return a Result for this case.
-        clas.__primary_instructors = primary_instructors
-        clas.__secondary_instructors = secondary_instructors
+        clas.__primary_instructors = primary_instructors_
+        clas.__secondary_instructors = secondary_instructors_
         
         return clas
         

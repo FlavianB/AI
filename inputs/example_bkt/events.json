@@ -1,9 +1,11 @@
 {
   "events": [
     {
-      "type": "Lecture",
-      "group": "A2",
-      "course": "IP"
+      "name_" : "A5-TPM",
+      "semester_": 1,
+      "optional_package_": "1",
+      "primary_instructors_": ["1"],
+      "secondary_instructors_": ["1"]
     }
   ]
 }

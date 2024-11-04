@@ -1,5 +1,5 @@
 import json
-from io_utils.reading_bkt import read_classrooms
+from io_utils.reading_bkt import read_classrooms, read_staff_members
 from models.classroom import Classroom
 from models.constants import Day
 # Here we have the basic availability for the classrooms and instructors
@@ -61,25 +61,20 @@ from models.constants import Day
 #         )
 
 classrooms = read_classrooms('example_bkt')
-
 if classrooms is None:
     exit(0)
-# We will parse the data from the JSON files
-# f = open('classrooms.json')
-# classrooms_data = json.load(f)
-# classrooms = [Classroom.create(**classroom) for classroom in classrooms_data['classrooms']]
+print (classrooms[0])
 
-print (classrooms)
+staff_members = read_staff_members('example_bkt')
+if staff_members is None:
+    exit(0)
+print(staff_members[0])
+
+
 exit(0)
 f = open('events.json')
 events_data = json.load(f)
 events = [Event(**event) for event in events_data['events']]
-
-f = open('staff_members.json')
-staff_members_data = json.load(f)
-staff_members = [StaffMember(**staff_member) for staff_member in staff_members_data['staff']]
-print(staff_members[0])
-
 
 def process_soft_constraints(constraints_file):
     f = open(constraints_file)

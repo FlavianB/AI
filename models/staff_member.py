@@ -1,6 +1,8 @@
 from enum import Enum
 
 import models.constants as consts
+from returns.result import Result, Success, Failure
+
 
 class StaffMemberPosition(Enum):
     PROFESSOR = 'Professor'
@@ -8,11 +10,11 @@ class StaffMemberPosition(Enum):
     INVALID = 'Invalid'
 
     @staticmethod
-    def from_string(value: str) -> 'StaffMemberPosition':
+    def from_string(value: str) -> Result['StaffMemberPosition', str]:
         try:
-            return StaffMemberPosition(value)
+            return Success(StaffMemberPosition(value))
         except ValueError:
-            return StaffMemberPosition.INVALID
+            return Failure(f"Invalid staff member position {value}")
 
 class StaffMember:
     """
@@ -49,9 +51,15 @@ class StaffMember:
         clas = StaffMember(id_)
         clas.__id = id_
         clas.__name = name_
-        clas.__position = StaffMemberPosition.from_string(position_)
-        clas.availability = consts.BASIC_AVAILABILITY
-        return clas
+        resultPosition =  StaffMemberPosition.from_string(position_)
+        match resultPosition:
+            case Success(position):
+                clas.__position = position
+            case Failure(err):
+                return Failure(err) 
+        
+        clas.availability = consts.BASIC_AVAILABILITY.copy()
+        return Success(clas)
 
     def get_id(self) -> str:
         return self.__id

@@ -1,8 +1,9 @@
 {
-  "staff": [
+  "staff_members": [
     {
-      "name": "Dr. Smith",
-      "position": "Professor"
+      "id_" : "1",
+      "position_": "Professor",
+      "name_": "Dr. Smith"
     }
   ]
 }

@@ -34,7 +34,7 @@ class StaffMember:
     availability: dict[consts.Day, list[str]]
 
     @staticmethod
-    def create(id_: str, position_: str, name_: str) -> "StaffMember":
+    def create(id_: str, position_: str, name_: str) -> Result["StaffMember", str]:
         """
         Creates a StaffMember object. In case of 
         an invalid position, it will return an object with the field `position`

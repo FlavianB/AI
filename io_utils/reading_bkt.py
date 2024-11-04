@@ -5,7 +5,7 @@ from returns.pipeline import is_successful
 from returns.result import Success
 from models.classroom import Classroom
 from models.staff_member import StaffMember
-from models.events import Event
+from models.event import Event
 
 def read_classrooms(data_set_path: str) -> Optional[list[Classroom]]:
     is_valid = True

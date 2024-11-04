@@ -38,4 +38,4 @@
 - After the split, the only data needed for computation is **ID** and **Optional Package**.
 
 **Additional Details Needed for Computational**: 
-- Consider keeping a list of Primary and Secondary Instructors for reference.
+- Consider keeping a list of Primary and Secondary Instructors for reference. (Arc consitency)

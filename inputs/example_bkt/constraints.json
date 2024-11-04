@@ -1,0 +1,33 @@
+{
+  "constraints": [
+    {
+      "type": "unavailable_staff_time",
+      "name": "Dr. Smith",
+      "unavailability": {
+        "Monday": ["08:00-10:00"],
+        "Tuesday": ["08:00-10:00"]
+      },
+      "weight": "hard"
+    },
+    {
+      "type": "unavailable_classroom_time",
+      "id": "C2",
+      "unavailability": {
+        "Friday": ["08:00-10:00", "10:00-12:00"]
+      },
+      "weight": "hard"
+    },
+    {
+      "type": "preferred_event",
+      "classroom" : "C112",
+      "instructor": "Dr. Johnson",
+      "course": "IP",
+      "group": "A2",
+      "event_type": "Lecture",
+      "preferred_time": {
+        "Wednesday": ["10:00-12:00"]
+      },
+      "weight": "hard"
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 from enum import Enum
+from returns.result import Result, Success, Failure
 
 import models.constants as consts
 
@@ -8,11 +9,11 @@ class ClassroomType(Enum):
     INVALID = 'Invalid'
 
     @staticmethod
-    def from_string(value: str) -> 'ClassroomType':
+    def from_string(value: str) -> Result['ClassroomType', str]:
         try:
-            return ClassroomType(value)
+            return Success(ClassroomType(value))
         except ValueError:
-            return ClassroomType.INVALID
+            return Failure(f"Invalid classroom type {value}")
 
 class Classroom:
     """
@@ -25,14 +26,13 @@ class Classroom:
         
         Use the `create` method to instantiate a Classroom object.
     """
-    __slots__ = '__id', '__type', '__haha', 'availability'
+    __slots__ = '__id', '__type', 'availability'
     __id: str
     __type: ClassroomType
-    __haha: str
-    availability: dict[str, list[str]]
+    availability: dict[consts.Day, list[str]]
 
     @staticmethod
-    def create(id_: str, type_: str) -> "Classroom":
+    def create(id_: str, type_: str) -> Result["Classroom", str]:
         """
         Creates a Classroom object. In case of 
         an invalid type, it will return an object with the field `type`
@@ -47,9 +47,15 @@ class Classroom:
         """
         clas = Classroom(id_)
         clas.__id = id_
-        clas.__type = ClassroomType.from_string(type_)
-        clas.availability = consts.BASIC_AVAILABILITY
-        return clas
+        resultType =  ClassroomType.from_string(type_)
+        match resultType:
+            case Success(type):
+                clas.__type = type
+            case Failure(err):
+                return Failure(err) 
+        
+        clas.availability = consts.BASIC_AVAILABILITY.copy()
+        return Success(clas)
 
     def get_id(self) -> str:
         return self.__id

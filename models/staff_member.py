@@ -29,7 +29,7 @@ class StaffMember:
     __id: str
     __position: StaffMemberPosition
     __name: str
-    availability: dict[str, list[str]]
+    availability: dict[consts.Day, list[str]]
 
     @staticmethod
     def create(id_: str, position_: str, name_: str) -> "StaffMember":

@@ -20,7 +20,7 @@ def read_classrooms(data_set_path: str) -> Optional[list[Classroom]]:
             is_valid = False
             print(classroom.failure())
         else:
-            classroom_id = classroom.unwrap().id_
+            classroom_id = classroom.unwrap().get_id()
             if classroom_id in seen_ids:
                 is_valid = False
                 print(f"Duplicate ID found in classrooms: {classroom_id}")
@@ -42,7 +42,7 @@ def read_staff_members(data_set_path: str) -> Optional[list[StaffMember]]:
             is_valid = False
             print(staff_member.failure())
         else:
-            staff_member_id = staff_member.unwrap().id_
+            staff_member_id = staff_member.unwrap().get_id()
             if staff_member_id in seen_ids:
                 is_valid = False
                 print(f"Duplicate ID found in staff members: {staff_member_id}")

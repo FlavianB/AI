@@ -53,8 +53,8 @@ class StaffMember:
         clas.__name = name
         resultPosition =  StaffMemberPosition.from_string(position)
         match resultPosition:
-            case Success(position):
-                clas.__position = position
+            case Success(position_):
+                clas.__position = position_
             case Failure(err):
                 return Failure(err) 
         

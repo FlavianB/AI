@@ -33,7 +33,7 @@ class BKTAlgorithm:
         
         course = self.courses[course_index]
 
-        classrooms = self.lecture_classes if course.type == CourseType.LECTURE else self.laboratory_classes
+        classrooms = self.lecture_classes if course.__type == CourseType.LECTURE else self.laboratory_classes
 
         for classroom in classrooms:
             # for time_interval in self.time_interval:

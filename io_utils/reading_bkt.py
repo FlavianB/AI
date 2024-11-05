@@ -71,11 +71,11 @@ def read_events(data_set_path: str) -> Optional[list[Event]]:
     events_data = json.load(f)
     events = [Event.create(**event) for event in events_data['events']]
     
-    return None if not events else events
+    return None if not events else [event.unwrap() for event in events]
 
-def read_all_data(data_set_path: str) -> Optional[list[list[Classroom], list[StaffMember], list[Event]]]:
+def read_all_data(data_set_path: str) -> Optional[tuple[list[Classroom], list[StaffMember], list[Event]]]:
     classrooms = read_classrooms(data_set_path)
     staff_members = read_staff_members(data_set_path)
     events = read_events(data_set_path)
-
-    return None if not classrooms or not staff_members or not events else [classrooms, staff_members, events]
+    
+    return None if not classrooms or not staff_members or not events else (classrooms, staff_members, events)

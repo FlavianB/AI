@@ -34,7 +34,7 @@ class StaffMember:
     availability: dict[consts.Day, list[str]]
 
     @staticmethod
-    def create(id_: str, position_: str, name_: str) -> Result["StaffMember", str]:
+    def create(id_: str, position: str, name: str) -> Result["StaffMember", str]:
         """
         Creates a StaffMember object. In case of 
         an invalid position, it will return an object with the field `position`
@@ -42,16 +42,16 @@ class StaffMember:
 
         Parameters:
             id_ (str): Id of the classroom.
-            position_ (str): Position of the classroom.
-            name_ (str): Name of the staff member (first and last name)
+            position (str): Position of the classroom.
+            name (str): Name of the staff member (first and last name)
             
         Returns:
             StaffMember: The object representing the classroom.
         """
         clas = StaffMember(id_)
         clas.__id = id_
-        clas.__name = name_
-        resultPosition =  StaffMemberPosition.from_string(position_)
+        clas.__name = name
+        resultPosition =  StaffMemberPosition.from_string(position)
         match resultPosition:
             case Success(position):
                 clas.__position = position

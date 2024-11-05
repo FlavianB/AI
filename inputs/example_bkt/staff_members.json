@@ -2,8 +2,8 @@
   "staff_members": [
     {
       "id_" : "1",
-      "position_": "Professor",
-      "name_": "Dr. Smith"
+      "position": "Professor",
+      "name": "Dr. Smith"
     }
   ]
 }

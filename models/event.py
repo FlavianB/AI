@@ -43,7 +43,7 @@ class Event:
         """
 
         err = ''
-        if isspace(name):
+        if not name.strip():
             err += f'Name should not be empty'
         if (semester < 1 or semester > 6):
             err += f'Semester should be in interval 1-6, but has value {semester}.\n'

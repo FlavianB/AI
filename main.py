@@ -1,9 +1,11 @@
 import json
 from io_utils.reading_bkt import read_classrooms, read_staff_members, read_events
+from io_utils.reading_bkt import read_all_data
+from io_utils.generating_data import generate_courses
 from algorithms.bkt import BKTAlgorithm
-from io_utils.reading_bkt import read_classrooms
 from models.classroom import Classroom
 from models.constants import Day
+
 # Here we have the basic availability for the classrooms and instructors
 
 # class Classroom:
@@ -62,104 +64,85 @@ from models.constants import Day
 #             f"Assigned Events:\n{events_str}"
 #         )
 
-classrooms = read_classrooms('example_bkt')
-if classrooms is None:
-    exit(0)
-print (classrooms[0])
-
-print("-----------------------------------------------------------")
-print (classrooms)
-BKTAlgorithm(classrooms)
-
-exit(0)
-f = open('events.json')
-events_data = json.load(f)
-events = [Event(**event) for event in events_data['events']]
-
-staff_members = read_staff_members('example_bkt')
-if staff_members is None:
-    exit(0)
+classrooms, staff_members, events = read_all_data('example_bkt')
+print(classrooms[0])
 print(staff_members[0])
-
-print("-----------------------------------------------------------")
-
-events = read_events('example_bkt')
-if events is None:
-    exit(0)
 print(events[0])
-
+courses = generate_courses(events)
+for c in courses:
+    print(c)
 
 exit(0)
 
-def process_soft_constraints(constraints_file):
-    f = open(constraints_file)
-    constraints_data = json.load(f)['constraints']
+# def process_soft_constraints(constraints_file):
+#     f = open(constraints_file)
+#     constraints_data = json.load(f)['constraints']
 
-    # Extract the soft constraints
-    return [constraint for constraint in constraints_data if constraint.get('weight') == 'soft']
-
-
-def process_hard_constraints(constraints_file):
-    # We will parse the constraints
-    f = open(constraints_file)
-    constraints_data = json.load(f)['constraints']
-    # We will parse the staff constraints
-    hard_unavailable_staff_time_constraints = filter(
-        lambda constraint: constraint['type'] == 'unavailable_staff_time' and constraint['weight'] == 'hard',
-        constraints_data)
-    for constraint in hard_unavailable_staff_time_constraints:
-        staff_member = next((staff_member for staff_member in staff_members if staff_member.name == constraint['name']),
-                            None)
-        for day, times in constraint['unavailability'].items():
-            if day in staff_member.availability:
-                # Remove each unavailable time from the available times
-                for time in times:
-                    if time in staff_member.availability[day]:
-                        staff_member.availability[day].remove(time)
-
-    print('--------------------------')
-    print(staff_members[0])
-
-    print('--------------------------')
-    print(classrooms[0])
-    # We will parse the classroom constraints
-    hard_unavailable_classroom_time_constraints = filter(
-        lambda constraint: constraint['type'] == 'unavailable_classroom_time' and constraint['weight'] == 'hard',
-        constraints_data)
-    for constraint in hard_unavailable_classroom_time_constraints:
-        classroom = next((classroom for classroom in classrooms if classroom.id == constraint['id']), None)
-        if classroom:
-            for day, times in constraint['unavailability'].items():
-                # Remove each unavailable time from the available times
-                for time in times:
-                    if time in classroom.availability[day]:
-                        classroom.availability[day].remove(time)
-
-    print('--------------------------')
-    print(classrooms[0])
-
-    print('--------------------------')
-    print(events[0])
-    # We will parse the event constraints
-    hard_event_constraints = filter(
-        lambda constraint: constraint['type'] == 'preferred_event' and constraint['weight'] == 'hard',
-        constraints_data)
-    for constraint in hard_event_constraints:
-        event = next((event for event in events if event.group == constraint['group']
-                      and event.course == constraint['course']
-                      and event.type == constraint['event_type']), None)
-        if event:
-            if constraint['preferred_time']:
-                event.assigned_time = constraint['preferred_time']
-            if constraint['instructor']:
-                event.instructor = constraint['instructor']
-            if constraint['classroom']:
-                event.classroom = constraint['classroom']
-
-    print('--------------------------')
-    print(events[0])
+#     # Extract the soft constraints
+#     return [constraint for constraint in constraints_data if constraint.get('weight') == 'soft']
 
 
-process_hard_constraints('constraints.json')
+# def process_hard_constraints(constraints_file):
+#     # We will parse the constraints
+#     f = open(constraints_file)
+#     constraints_data = json.load(f)['constraints']
+#     # We will parse the staff constraints
+#     hard_unavailable_staff_time_constraints = filter(
+#         lambda constraint: constraint['type'] == 'unavailable_staff_time' and constraint['weight'] == 'hard',
+#         constraints_data)
+#     for constraint in hard_unavailable_staff_time_constraints:
+#         staff_member = next((staff_member for staff_member in staff_members if staff_member.name == constraint['name']),
+#                             None)
+#         for day, times in constraint['unavailability'].items():
+#             if day in staff_member.availability:
+#                 # Remove each unavailable time from the available times
+#                 for time in times:
+#                     if time in staff_member.availability[day]:
+#                         staff_member.availability[day].remove(time)
 
-soft_constraints = process_soft_constraints('constraints.json')
+#     print('--------------------------')
+#     print(staff_members[0])
+
+#     print('--------------------------')
+#     print(classrooms[0])
+#     # We will parse the classroom constraints
+#     hard_unavailable_classroom_time_constraints = filter(
+#         lambda constraint: constraint['type'] == 'unavailable_classroom_time' and constraint['weight'] == 'hard',
+#         constraints_data)
+#     for constraint in hard_unavailable_classroom_time_constraints:
+#         classroom = next((classroom for classroom in classrooms if classroom.id == constraint['id']), None)
+#         if classroom:
+#             for day, times in constraint['unavailability'].items():
+#                 # Remove each unavailable time from the available times
+#                 for time in times:
+#                     if time in classroom.availability[day]:
+#                         classroom.availability[day].remove(time)
+
+#     print('--------------------------')
+#     print(classrooms[0])
+
+#     print('--------------------------')
+#     print(events[0])
+#     # We will parse the event constraints
+#     hard_event_constraints = filter(
+#         lambda constraint: constraint['type'] == 'preferred_event' and constraint['weight'] == 'hard',
+#         constraints_data)
+#     for constraint in hard_event_constraints:
+#         event = next((event for event in events if event.group == constraint['group']
+#                       and event.course == constraint['course']
+#                       and event.type == constraint['event_type']), None)
+#         if event:
+#             if constraint['preferred_time']:
+#                 event.assigned_time = constraint['preferred_time']
+#             if constraint['instructor']:
+#                 event.instructor = constraint['instructor']
+#             if constraint['classroom']:
+#                 event.classroom = constraint['classroom']
+
+#     print('--------------------------')
+#     print(events[0])
+
+
+# process_hard_constraints('constraints.json')
+
+# soft_constraints = process_soft_constraints('constraints.json')

@@ -12,10 +12,20 @@ def read_classrooms(data_set_path: str) -> Optional[list[Classroom]]:
     f = open(f'inputs/{data_set_path}/classrooms.json')
     classrooms_data = json.load(f)
     classrooms = [Classroom.create(**classroom) for classroom in classrooms_data['classrooms']]
+    
+    # Check for duplicate IDs
+    seen_ids = set()
     for classroom in classrooms:
-        if(not is_successful(classroom)):
+        if not is_successful(classroom):
             is_valid = False
             print(classroom.failure())
+        else:
+            classroom_id = classroom.unwrap().id_
+            if classroom_id in seen_ids:
+                is_valid = False
+                print(f"Duplicate ID found in classrooms: {classroom_id}")
+            else:
+                seen_ids.add(classroom_id)
 
     return None if not is_valid else [classroom.unwrap() for classroom in classrooms]
 
@@ -24,10 +34,20 @@ def read_staff_members(data_set_path: str) -> Optional[list[StaffMember]]:
     f = open(f'inputs/{data_set_path}/staff_members.json')
     staff_members_data = json.load(f)
     staff_members = [StaffMember.create(**staff_member) for staff_member in staff_members_data['staff_members']]
+    
+    # Check for duplicate IDs
+    seen_ids = set()
     for staff_member in staff_members:
-        if(not is_successful(staff_member)):
+        if not is_successful(staff_member):
             is_valid = False
             print(staff_member.failure())
+        else:
+            staff_member_id = staff_member.unwrap().id_
+            if staff_member_id in seen_ids:
+                is_valid = False
+                print(f"Duplicate ID found in staff members: {staff_member_id}")
+            else:
+                seen_ids.add(staff_member_id)
 
     return None if not is_valid else [staff_member.unwrap() for staff_member in staff_members]
 

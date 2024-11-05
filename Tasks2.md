@@ -26,6 +26,7 @@
 ### 6. Generate courses
 - Implement `Course` class to respect encapsulation
 - Generate based on events all the courses needed
+- Generate an input more complex
 - For now we will consider the groups static
     - List of groups: A1-A5,B1-B4,E1-E3
     - For the courses the group will be considered A,B,E

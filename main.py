@@ -3,7 +3,22 @@ from io_utils.reading_bkt import read_all_data
 from io_utils.generating_data import generate_courses
 from io_utils.reading_bkt import read_all_data
 
-data = read_all_data('example_bkt')
+import argparse
+import argcomplete
+
+# PYTHON_ARGCOMPLETE_OK
+parser = argparse.ArgumentParser(description="A CLI script with autocompletion.")
+
+# Define some arguments
+parser.add_argument("algorithm", choices=["bkt", "arc", "arc-accu"], help="Algorithm to use.")
+parser.add_argument("--input", choices=["example_bkt", "example_create_error", "example_validate_error"], help="Input file to consider")
+
+# Enable autocompletion with argcomplete
+argcomplete.autocomplete(parser)
+
+args = parser.parse_args()
+
+data = read_all_data(args.input)
 if data is None:
     exit(-1)
     

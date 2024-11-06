@@ -1,5 +1,5 @@
 from enum import Enum
-from typing import Optional, Dict, List
+from typing import Dict, List
 from returns.result import Result, Success, Failure
 from returns.pipeline import is_successful
 import models.constants as consts
@@ -54,19 +54,19 @@ class StaffMember:
         if not name.strip():
             err += "The name must not be empty.\n"
         
+        staff_member = StaffMember(id_)
+
         position_result = StaffMemberPosition.from_string(position)
         if not is_successful(position_result):
             err += position_result.failure()
         else:
-            staff_position = position_result.unwrap()
+            staff_member.__position = position_result.unwrap()
 
         if err:
             return Failure(err)
         
-        staff_member = StaffMember(id_)
         staff_member.__id = id_
         staff_member.__name = name
-        staff_member.__position = staff_position
         staff_member.availability = consts.BASIC_AVAILABILITY.copy()
 
         return Success(staff_member)

@@ -11,7 +11,7 @@ class Course:
     __type: CourseType
     __group: str
     __optional_package: Optional[int]
-    __instructors: list[int]
+    __instructors: list[str]
 
     def __init__(self, event: Event, course_type: CourseType, group: str):
         self.__event_id = event.get_id()
@@ -34,7 +34,7 @@ class Course:
     def get_optional_package(self) -> Optional[int]:
         return self.__optional_package
 
-    def get_instructors(self) -> list[int]:
+    def get_instructors(self) -> list[str]:
         return self.__instructors
 
     def __str__(self):

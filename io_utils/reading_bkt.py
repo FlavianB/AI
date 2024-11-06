@@ -65,4 +65,16 @@ def read_all_data(data_set_path: str) -> Optional[tuple[list[Classroom], list[St
     staff_members = _read_staff_members(data_set_path)
     events = _read_events(data_set_path)
     
-    return None if not classrooms or not staff_members or not events else (classrooms, staff_members, events)
+    if staff_members is None or events is None:
+        return None
+    
+    is_valid = True
+    staff_members_ids = set(list(map(lambda x: x.get_id() ,staff_members)))
+
+    for event in events:
+        unknown_ids = set(event.get_primary_instructors()).union(set(event.get_secondary_instructors())) - staff_members_ids
+        if unknown_ids:
+            print(f"Ids for event {event.get_name()} are not corelated with any staff members with id {unknown_ids}.")
+            is_valid = False
+        
+    return None if not classrooms or not staff_members or not events or not is_valid else (classrooms, staff_members, events)

@@ -20,12 +20,12 @@ class Event:
     __semester: int
     __optional_package: Optional[int] 
     
-    __primary_instructors: list[int]
-    __secondary_instructors: list[int]
+    __primary_instructors: list[str]
+    __secondary_instructors: list[str]
 
     @staticmethod
     def create(name: str, semester: int, optional_package: Optional[int], 
-               primary_instructors: list[int], secondary_instructors: list[int]) -> Result["Event", str]:
+               primary_instructors: list[str], secondary_instructors: list[str]) -> Result["Event", str]:
         """
         Creates a Event object. In case of 
         an invalid semester, invalid optional_package or empty instructors it will return a error message.
@@ -57,7 +57,7 @@ class Event:
         return Success(Event(name, semester, optional_package, primary_instructors, secondary_instructors))
     
     def __init__(self, name: str, semester: int, optional_package: Optional[int],
-                 primary_instructors: list[int], secondary_instructors: list[int]):
+                 primary_instructors: list[str], secondary_instructors: list[str]):
         """
         DO NOT USE THIS METHOD OUTSIDE the `Classroom` class.
         """
@@ -81,10 +81,10 @@ class Event:
     def get_optional_package(self) -> Optional[int]:
         return self.__optional_package
 
-    def get_primary_instructors(self) -> list[int]:
+    def get_primary_instructors(self) -> list[str]:
         return self.__primary_instructors
 
-    def get_secondary_instructors(self) -> list[int]:
+    def get_secondary_instructors(self) -> list[str]:
         return self.__secondary_instructors
     def __str__(self):
         return (

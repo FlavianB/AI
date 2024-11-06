@@ -11,6 +11,7 @@ parser = argparse.ArgumentParser(description="A CLI script with autocompletion."
 
 # Define some arguments
 parser.add_argument("algorithm", choices=["bkt", "arc", "arc-accu"], help="Algorithm to use.")
+parser.add_argument("semester", choices=["1", "2"], help="For which semester should we generate the timetable")
 parser.add_argument("--input", choices=["example_bkt", "example_create_error", "example_validate_error"], help="Input file to consider")
 
 # Enable autocompletion with argcomplete

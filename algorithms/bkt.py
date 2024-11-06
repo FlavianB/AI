@@ -1,53 +1,8 @@
-from enum import Enum
-
 from models.classroom import Classroom, ClassroomType
 from models.course import Course, CourseType
 from models.event import Event
 from models.staff_member import StaffMember
-
-'''
-    We read M1 as interval: Monday 8:00-10:00
-    Digit 1 means 8:00-10:00
-    Digit 6 means 18:00-20:00
-    M - Monday
-    T - Tuesday
-    ...
-'''
-class TimeInterval(Enum):
-    M1 = 1,
-    M2 = 2,
-    M3 = 3,
-    M4 = 4,
-    M5 = 5,
-    M6 = 6,
-
-    T1 = 11,
-    T2 = 12,
-    T3 = 13,
-    T4 = 14,
-    T5 = 15,
-    T6 = 16,
-
-    W1 = 21,
-    W2 = 22,
-    W3 = 23,
-    W4 = 24,
-    W5 = 25,
-    W6 = 26,
-
-    TH1 = 31,
-    TH2 = 32,
-    TH3 = 33,
-    TH4 = 34,
-    TH5 = 35,
-    TH6 = 36,
-
-    F1 = 41,
-    F2 = 42,
-    F3 = 43,
-    F4 = 44,
-    F5 = 45,
-    F6 = 46,
+from models.time_interval import TimeInterval
 
 def are_groups_equal(group1: str, group2: str) -> bool:
     if group1 == 'ABE' or group2 == 'ABE':
@@ -80,16 +35,19 @@ class BKTAlgorithm:
             course_, (classroom_, staf_id, time_interval_) = solution
             event_ = next(event for event in self.events if event.get_id() == course_.get_event_id())
 
-            if time_interval_ == time_interval:
+            if time_interval_ != time_interval:
+                continue
                 # Check intersection of classroom with members
-                if classroom_ == classroom or len(set(staff_member_ids) & set(staf_id)):
-                    return False
-                if (event.get_semester() == event_.get_semester()
-                           and are_groups_equal(course_.get_group(), course.get_group())):
-                    if course.get_optional_package() is None or course_.get_optional_package is None:
-                        return False
-                    if (course.get_optional_package() == course_.get_optional_package()):
-                        return False
+            if classroom_ == classroom or len(set(staff_member_ids) & set(staf_id)):
+                return False
+            
+            if not (event.get_semester() == event_.get_semester()
+                        and are_groups_equal(course_.get_group(), course.get_group())):
+                continue
+            if course.get_optional_package() is None or course_.get_optional_package is None:
+                return False
+            if (course.get_optional_package() == course_.get_optional_package()):
+                return False
        
         return True
     def backtrack(self, course_index=0):

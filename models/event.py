@@ -62,7 +62,7 @@ class Event:
         DO NOT USE THIS METHOD OUTSIDE the `Classroom` class.
         """
         
-        self.__id = f"{semester} {''.join(word[0].upper() for word in name.split() if word)}"
+        self.__id = f"{semester} {''.join(word[0].upper() for word in name.split() if word) if len(name.split(' ')) != 1 else name}"
         self.__name = name
         self.__semester = semester
         self.__optional_package = optional_package
@@ -90,7 +90,7 @@ class Event:
         return (
             f"Event: {self.__id}\n"
             f"Course: {self.__name}\n"
-            f"Year/Semester: {self.__semester / 2 + 1}/{self.__semester % 2 + 1}\n"
+            f"Year/Semester: {self.__semester // 2 + 1}/{self.__semester % 2 + 1}\n"
             f"Optional Package: {self.__optional_package}\n"
             f"Primary Instructors: {self.__primary_instructors}\n"
             f"Secondary Instructors: {self.__secondary_instructors}\n"

@@ -1,7 +1,6 @@
-import json
-from io_utils.reading_bkt import read_classrooms, read_staff_members, read_events
 from io_utils.reading_bkt import read_all_data
 from io_utils.generating_data import generate_courses
+from io_utils.reading_bkt import read_all_data
 from algorithms.bkt import BKTAlgorithm
 from models.classroom import Classroom
 from models.constants import Day
@@ -67,6 +66,10 @@ from models.constants import Day
 classrooms, staff_members, events = read_all_data('example_bkt')
 print(classrooms[0])
 print(staff_members[0])
+print (classrooms[0])
+print("-----------------------------------------------------------")
+print(staff_members[0])
+print("-----------------------------------------------------------")
 print(events[0])
 courses = generate_courses(events)
 for c in courses:

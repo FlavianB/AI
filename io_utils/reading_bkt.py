@@ -7,7 +7,7 @@ from models.classroom import Classroom
 from models.staff_member import StaffMember
 from models.event import Event
 
-def read_classrooms(data_set_path: str) -> Optional[list[Classroom]]:
+def _read_classrooms(data_set_path: str) -> Optional[list[Classroom]]:
     is_valid = True
     f = open(f'inputs/{data_set_path}/classrooms.json')
     classrooms_data = json.load(f)
@@ -29,7 +29,7 @@ def read_classrooms(data_set_path: str) -> Optional[list[Classroom]]:
 
     return None if not is_valid else [classroom.unwrap() for classroom in classrooms]
 
-def read_staff_members(data_set_path: str) -> Optional[list[StaffMember]]:
+def _read_staff_members(data_set_path: str) -> Optional[list[StaffMember]]:
     is_valid = True
     f = open(f'inputs/{data_set_path}/staff_members.json')
     staff_members_data = json.load(f)
@@ -66,7 +66,7 @@ def read_staff_members(data_set_path: str) -> Optional[list[StaffMember]]:
 
 
 # Without results:
-def read_events(data_set_path: str) -> Optional[list[Event]]:
+def _read_events(data_set_path: str) -> Optional[list[Event]]:
     f = open(f'inputs/{data_set_path}/events.json')
     events_data = json.load(f)
     for event in events_data['events']:
@@ -77,8 +77,8 @@ def read_events(data_set_path: str) -> Optional[list[Event]]:
     return None if not events else [e.unwrap() for e in events]
 
 def read_all_data(data_set_path: str) -> Optional[tuple[list[Classroom], list[StaffMember], list[Event]]]:
-    classrooms = read_classrooms(data_set_path)
-    staff_members = read_staff_members(data_set_path)
-    events = read_events(data_set_path)
+    classrooms = _read_classrooms(data_set_path)
+    staff_members = _read_staff_members(data_set_path)
+    events = _read_events(data_set_path)
     
     return None if not classrooms or not staff_members or not events else (classrooms, staff_members, events)

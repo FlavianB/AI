@@ -46,6 +46,17 @@ class BKTAlgorithm:
                     
                     self.solution.pop()
         return False
+    
+        # idee:
+        # for classroom in classrooms:
+        #      for prof in profs:
+        #           for course in courses:
+        #             time_intervals = intersectia dintre classroom.availability si prof.availability
+        #             for time_interval in time_intervals:
+        #                 if is_valid(time_interval, course, clasroom, prog):
+        #                     etc
+
+
         # mergem prin toate cursurile recursiv
         # alegem un classroom un functie de type ul cursului pentru M1(monday 8:00-10:00)
         # daca gasim ne uitam la profii care pot sa predea in M1

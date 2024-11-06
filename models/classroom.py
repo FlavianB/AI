@@ -14,7 +14,7 @@ class ClassroomType(Enum):
         try:
             return Success(ClassroomType(value))
         except ValueError:
-            return Failure(f"Invalid classroom type {value}.\n")
+            return Failure(f"Invalid classroom type '{value}'.\n")
 
 class Classroom:
     """

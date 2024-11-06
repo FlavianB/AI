@@ -1,0 +1,16 @@
+{
+  "classrooms": [
+    {
+      "id_": "C2",
+      "type_": "Lecture"
+    },
+    {
+      "id_": "C112",
+      "type_": "Lecture"
+    },
+    {
+      "id_": "C2",
+      "type_": "Laboratory"
+    }
+  ]
+}

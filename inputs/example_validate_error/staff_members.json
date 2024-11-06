@@ -9,6 +9,11 @@
         "id_" : "2",
         "position": "Assistant",
         "name": "Dr. Johnson"
+    },
+    {
+        "id_" : "1",
+        "position": "Professor",
+        "name": "Dr. Smith"
     }
   ]
 }

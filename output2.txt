@@ -1,0 +1,57 @@
+TPM 1 CourseType.LECTURE ABE
+C2 TimeInterval.M1
+Dr. Smith
+TPM 1 CourseType.LABORATORY A
+C401 TimeInterval.M2
+Dr. Doe
+TPM 1 CourseType.LABORATORY B
+C401 TimeInterval.M3
+Dr. Doe
+TPM 1 CourseType.LABORATORY E
+C401 TimeInterval.M4
+Dr. Doe
+OOP 1 CourseType.LECTURE A
+C2 TimeInterval.M3
+Dr. Smith
+OOP 1 CourseType.LECTURE B
+C2 TimeInterval.M2
+Dr. Smith
+OOP 1 CourseType.LECTURE E
+C2 TimeInterval.M5
+Dr. Smith
+OOP 1 CourseType.LABORATORY A1
+C401 TimeInterval.M5
+Dr. Doe
+OOP 1 CourseType.LABORATORY A2
+C401 TimeInterval.M6
+Dr. Doe
+OOP 1 CourseType.LABORATORY A3
+C401 TimeInterval.T1
+Dr. Doe
+OOP 1 CourseType.LABORATORY A4
+C401 TimeInterval.T2
+Dr. Doe
+OOP 1 CourseType.LABORATORY A5
+C401 TimeInterval.T3
+Dr. Doe
+OOP 1 CourseType.LABORATORY B1
+C401 TimeInterval.T4
+Dr. Doe
+OOP 1 CourseType.LABORATORY B2
+C401 TimeInterval.T5
+Dr. Doe
+OOP 1 CourseType.LABORATORY B3
+C401 TimeInterval.T6
+Dr. Doe
+OOP 1 CourseType.LABORATORY B4
+C401 TimeInterval.W1
+Dr. Doe
+OOP 1 CourseType.LABORATORY E1
+C401 TimeInterval.W2
+Dr. Doe
+OOP 1 CourseType.LABORATORY E2
+C401 TimeInterval.W3
+Dr. Doe
+OOP 1 CourseType.LABORATORY E3
+C401 TimeInterval.W4
+Dr. Doe

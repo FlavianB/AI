@@ -1,3 +1,4 @@
+from algorithms.bkt import BKTAlgorithm
 from io_utils.reading_bkt import read_all_data
 from io_utils.generating_data import generate_courses
 from io_utils.reading_bkt import read_all_data
@@ -7,17 +8,29 @@ if data is None:
     exit(-1)
     
 classrooms, staff_members, events = data
-print(classrooms[0])
-print(staff_members[0])
-print (classrooms[0])
-print("-----------------------------------------------------------")
-print(staff_members[0])
-print("-----------------------------------------------------------")
-print(events[0])
+# print(classrooms[0])
+# print(staff_members[0])
+# print (classrooms[0])
+# print("-----------------------------------------------------------")
+# print(staff_members[0])
+# print("-----------------------------------------------------------")
+# print(events[0])
 courses = generate_courses(events)
-for c in courses:
-    print(c)
+# for c in courses:
+#     print(c)
 
+algo = BKTAlgorithm(courses, classrooms, staff_members, events)
+if not algo.backtrack(0):
+    print("No schedule possible")
+else:
+    for solution in algo.solution:
+        (course, (classroom, ids, interval)) = solution
+        event = next(x for x in events if course.get_event_id() == x.get_id())
+        profs = list(filter(lambda x: any(x.get_id() == s_id for s_id in ids), staff_members))
+        print(event.get_name(), event.get_semester(), course.get_type(), course.get_group())
+        print (classroom.get_id(), interval)
+        for prof in profs:
+            print (prof.get_name())
 exit(0)
 
 # def process_soft_constraints(constraints_file):

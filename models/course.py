@@ -20,7 +20,7 @@ class Course:
         self.__optional_package = event.get_optional_package()
 
         self.__instructors = (event.get_primary_instructors() if course_type == CourseType.LECTURE 
-                              else event.get_secondary_instructors())
+                              else event.get_primary_instructors() + event.get_secondary_instructors())
 
     def get_event_id(self) -> str:
         return self.__event_id

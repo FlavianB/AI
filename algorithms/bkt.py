@@ -1,10 +1,6 @@
-
 from enum import Enum
-import time
-from typing import Optional
-from models import staff_member
+
 from models.classroom import Classroom, ClassroomType
-from models.constants import Day
 from models.course import Course, CourseType
 from models.event import Event
 from models.staff_member import StaffMember
@@ -94,7 +90,7 @@ class BKTAlgorithm:
                         return False
                     if (course.get_optional_package() == course_.get_optional_package()):
                         return False
-                
+       
         return True
     def backtrack(self, course_index=0):
         if course_index == len(self.courses):
@@ -103,13 +99,11 @@ class BKTAlgorithm:
         course = self.courses[course_index]
 
         classrooms = self.lecture_classes if course.get_type() == CourseType.LECTURE else self.laboratory_classes
-
         for classroom in classrooms:
             for time_interval in TimeInterval:
                 if (course.get_type() == CourseType.LECTURE):
                     if self.is_valid_assignment(course, classroom, course.get_instructors(), time_interval):
                         self.solution.append((course, (classroom, course.get_instructors(), time_interval))) # create solution
-                        
                         if self.backtrack(course_index + 1):
                             return True
                     

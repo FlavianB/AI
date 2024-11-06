@@ -72,9 +72,9 @@ def _read_events(data_set_path: str) -> Optional[list[Event]]:
     for event in events_data['events']:
         if 'optional_package' not in event:
             event['optional_package'] = None
+
     events = [Event.create(**event) for event in events_data['events']]
-    
-    return None if not events else [event.unwrap() for event in events]
+    return None if not events else [e.unwrap() for e in events]
 
 def read_all_data(data_set_path: str) -> Optional[tuple[list[Classroom], list[StaffMember], list[Event]]]:
     classrooms = _read_classrooms(data_set_path)

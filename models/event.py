@@ -33,9 +33,9 @@ class Event:
         Parameters:
             name (str): Name of the event.
             semester (str): An integer with values from 1 to 6.
-            optional_package: An integer with values from 1 to 3.
-            primary_instructors: A list of the ids of the instructors which can hold the lecture events.
-            secondary_instructors: A list of the ids of the instructors which can hold the laboratory events.
+            optional_package (int): An integer with values from 1 to 3.
+            primary_instructors (list[str]): A list of the ids of the instructors which can hold the lecture events.
+            secondary_instructors (list[str]): A list of the ids of the instructors which can hold the laboratory events.
             
         Returns:
             Result: The object representing the event or a error message.

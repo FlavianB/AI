@@ -1,20 +1,20 @@
 from enum import Enum
-
-import models.constants as consts
+from typing import Optional, Dict, List
 from returns.result import Result, Success, Failure
-
+from returns.pipeline import is_successful
+import models.constants as consts
 
 class StaffMemberPosition(Enum):
     PROFESSOR = 'Professor'
     ASSISTANT = 'Assistant'
     INVALID = 'Invalid'
-
+    
     @staticmethod
     def from_string(value: str) -> Result['StaffMemberPosition', str]:
         try:
             return Success(StaffMemberPosition(value))
         except ValueError:
-            return Failure(f"Invalid staff member position {value}")
+            return Failure(f"Invalid staff member position '{value}'.\n")
 
 class StaffMember:
     """
@@ -31,35 +31,45 @@ class StaffMember:
     __id: str
     __position: StaffMemberPosition
     __name: str
-    availability: dict[consts.Day, list[str]]
+    availability: Dict[consts.Day, List[str]]
 
     @staticmethod
     def create(id_: str, position: str, name: str) -> Result["StaffMember", str]:
         """
-        Creates a StaffMember object. In case of 
-        an invalid position, it will return an object with the field `position`
-        equal to `StaffMemberPosition.INVALID`.
+        Creates a StaffMember object with validation. Returns a Failure if any validation fails.
 
         Parameters:
-            id_ (str): Id of the classroom.
-            position (str): Position of the classroom.
-            name (str): Name of the staff member (first and last name)
+            id_ (str): Unique ID of the staff member.
+            position (str): Position of the staff member.
+            name (str): Name of the staff member (first and last name).
             
         Returns:
-            StaffMember: The object representing the classroom.
+            Result: A `Success` with the created object or a `Failure` with an error message.
         """
-        clas = StaffMember(id_)
-        clas.__id = id_
-        clas.__name = name
-        resultPosition =  StaffMemberPosition.from_string(position)
-        match resultPosition:
-            case Success(position_):
-                clas.__position = position_
-            case Failure(err):
-                return Failure(err) 
         
-        clas.availability = consts.BASIC_AVAILABILITY.copy()
-        return Success(clas)
+        err = ""
+        if not id_.strip():
+            err += "ID cannot be empty.\n"
+        
+        if not name.strip():
+            err += "The name must not be empty.\n"
+        
+        position_result = StaffMemberPosition.from_string(position)
+        if not is_successful(position_result):
+            err += position_result.failure()
+        else:
+            staff_position = position_result.unwrap()
+
+        if err:
+            return Failure(err)
+        
+        staff_member = StaffMember(id_)
+        staff_member.__id = id_
+        staff_member.__name = name
+        staff_member.__position = staff_position
+        staff_member.availability = consts.BASIC_AVAILABILITY.copy()
+
+        return Success(staff_member)
 
     def get_id(self) -> str:
         return self.__id

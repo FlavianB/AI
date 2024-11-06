@@ -1,54 +1,45 @@
+# PYTHON_ARGCOMPLETE_OK
+from icecream import ic
+
 from algorithms.bkt import BKTAlgorithm
+from cli import cli
 from io_utils.reading_bkt import read_all_data
 from io_utils.generating_data import generate_courses
 from io_utils.reading_bkt import read_all_data
 
-import argparse
-import argcomplete
+ALGORITHM, INPUT, SEMESTER = cli.parse()
+ic(ALGORITHM, INPUT, SEMESTER)
 
-# PYTHON_ARGCOMPLETE_OK
-parser = argparse.ArgumentParser(description="A CLI script with autocompletion.")
+def main():
 
-# Define some arguments
-parser.add_argument("algorithm", choices=["bkt", "arc", "arc-accu"], help="Algorithm to use.")
-parser.add_argument("semester", choices=["1", "2"], help="For which semester should we generate the timetable")
-parser.add_argument("--input", choices=["example_bkt", "example_create_error", "example_validate_error"], help="Input file to consider")
-
-# Enable autocompletion with argcomplete
-argcomplete.autocomplete(parser)
-
-args = parser.parse_args()
-
-data = read_all_data(args.input)
-if data is None:
-    exit(-1)
+    data = read_all_data(INPUT)
+    if data is None:
+        exit(-1)
     
-classrooms, staff_members, events = data
-# print(classrooms[0])
-# print(staff_members[0])
-# print (classrooms[0])
-# print("-----------------------------------------------------------")
-# print(staff_members[0])
-# print("-----------------------------------------------------------")
-# print(events[0])
-courses = generate_courses(events)
-# for c in courses:
-#     print(c)
+    classrooms, staff_members, events = data
+    courses = generate_courses(events, SEMESTER)
+    for i in events:
+        print (i)
+    if (ALGORITHM == 'bkt'):
+        algo = BKTAlgorithm(courses, classrooms, staff_members, events)
+        if not algo.backtrack(0):
+            print("No schedule possible")
+        else:
+            for solution in algo.solution:
+                (course, (classroom, ids, interval)) = solution
+                event = next(x for x in events if course.get_event_id() == x.get_id())
+                profs = list(filter(lambda x: any(x.get_id() == s_id for s_id in ids), staff_members))
+                print(event.get_name(), event.get_semester(), course.get_type(), course.get_group())
+                print (classroom.get_id(), interval)
+                for prof in profs:
+                    print (prof.get_name())
+        exit(0)
+    else:
+        print("Algorithm not implemented")
 
-algo = BKTAlgorithm(courses, classrooms, staff_members, events)
-if not algo.backtrack(0):
-    print("No schedule possible")
-else:
-    for solution in algo.solution:
-        (course, (classroom, ids, interval)) = solution
-        event = next(x for x in events if course.get_event_id() == x.get_id())
-        profs = list(filter(lambda x: any(x.get_id() == s_id for s_id in ids), staff_members))
-        print(event.get_name(), event.get_semester(), course.get_type(), course.get_group())
-        print (classroom.get_id(), interval)
-        for prof in profs:
-            print (prof.get_name())
-exit(0)
 
+if __name__ == '__main__':
+    main()
 # def process_soft_constraints(constraints_file):
 #     f = open(constraints_file)
 #     constraints_data = json.load(f)['constraints']

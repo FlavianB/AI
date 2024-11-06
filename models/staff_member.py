@@ -5,8 +5,9 @@ from returns.pipeline import is_successful
 import models.constants as consts
 
 class StaffMemberPosition(Enum):
-    PROFESSOR = 'Professor'
     ASSISTANT = 'Assistant'
+    LECTURER = 'Lecturer'
+    CONF = 'Conf'
     INVALID = 'Invalid'
     
     @staticmethod

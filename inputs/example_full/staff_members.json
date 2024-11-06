@@ -1,0 +1,214 @@
+{
+  "staff_members": [
+    {
+      "id_" : "1",
+      "position": "Assistant",
+      "name": "Anton Dan Gabriel"
+    },
+    {
+        "id_" : "2",
+        "position": "Conf",
+        "name": "Arusoaie Andreea-Valentina"
+    },
+    {
+      "id_" : "3",
+      "position": "Conf",
+      "name": "Zalinescu Adrian"
+    },
+    {
+        "id_" : "4",
+        "position": "Assistant",
+        "name": "Dr. Curca Eduard"
+    },
+    {
+      "id_" : "5",
+      "position": "Conf",
+      "name": "Forascu Corina"
+    },
+    {
+      "id_" : "6",
+      "position": "Assistant",
+      "name": "Vitel Silviu"
+    },
+    {
+      "id_" : "7",
+      "position": "Lecturer",
+      "name": "Radulescu Vlad"
+    },
+    {
+      "id_" : "8",
+      "position": "Assistant",
+      "name": "Balan Gheorghe"
+    },
+    {
+      "id_" : "9",
+      "position": "Assistant",
+      "name": "Parpalea Madalina"
+    },
+    {
+      "id_" : "10",
+      "position": "Assistant",
+      "name": "Simion Ruben"
+    },
+    {
+      "id_" : "11",
+      "position": "Assistant",
+      "name": "Leon Daniel"
+    },
+    {
+      "id_" : "12",
+      "position": "Conf",
+      "name": "Gatu Cristian"
+    },
+    {
+      "id_" : "13",
+      "position": "Conf",
+      "name": "Raschip Madalina"
+    },
+    {
+      "id_" : "14",
+      "position": "Assistant",
+      "name": "Ionita Alexandru"
+    },
+    {
+      "id_" : "15",
+      "position": "Assistant",
+      "name": "Rusu Daniel"
+    },
+    {
+      "id_" : "16",
+      "position": "Conf",
+      "name": "Vlad Ariana"
+    },
+    {
+      "id_" : "17",
+      "position": "Assistant",
+      "name": "Onciuc Oriana"
+    },
+    {
+      "id_" : "18",
+      "position": "Conf",
+      "name": "Arusoaie Andrei"
+    },
+    {
+      "id_" : "19",
+      "position": "Conf",
+      "name": "Ciobaca Stefan"
+    },
+    {
+      "id_" : "20",
+      "position": "Assistant",
+      "name": "Gratie Diana Elena"
+    },
+    {
+      "id_" : "21",
+      "position": "Lecturer",
+      "name": "Ghirvu Lucian"
+    },
+    {
+      "id_" : "22",
+      "position": "Lecturer",
+      "name": "Patrut Bogdan"
+    },
+    {
+      "id_" : "23",
+      "position": "Assistant",
+      "name": "Hadimbu Stelian"
+    },
+    {
+      "id_" : "24",
+      "position": "Assistant",
+      "name": "Perez Cenel Augusto"
+    },
+    {
+      "id_" : "25",
+      "position": "Lecturer",
+      "name": "Armanu Nicoleta"
+    },
+    {
+      "id_" : "26",
+      "position": "Lecturer",
+      "name": "Onofrei Laura"
+    },
+    {
+      "id_" : "27",
+      "position": "Lecturer",
+      "name": "Croitoru Eugen"
+    },
+    {
+      "id_" : "28",
+      "position": "Assistant",
+      "name": "Luchian Henri"
+    },
+    {
+      "id_" : "29",
+      "position": "Assistant",
+      "name": "Bogdan Ioana"
+    },
+    {
+      "id_" : "30",
+      "position": "Assistant",
+      "name": "Onu Stefan"
+    },
+    {
+      "id_" : "31",
+      "position": "Assistant",
+      "name": "Scutelnicu Andrei"
+    },
+    {
+      "id_" : "32",
+      "position": "Assistant",
+      "name": "Matei Madalina"
+    },
+    {
+      "id_" : "33",
+      "position": "Lecturer",
+      "name": "Alboaie Lenuta"
+    },
+    {
+      "id_" : "34",
+      "position": "Conf",
+      "name": "Panu Andrei"
+    },
+    {
+      "id_" : "35",
+      "position": "Assistant",
+      "name": "Hrib Ecaterina"
+    },
+    {
+      "id_" : "36",
+      "position": "Assistant",
+      "name": "Prelipcean Bogdan"
+    },
+    {
+      "id_" : "37",
+      "position": "Lecturer",
+      "name": "Captarencu Oana"
+    },
+    {
+      "id_" : "38",
+      "position": "Lecturer",
+      "name": "Moruz Alex"
+    },
+    {
+      "id_" : "39",
+      "position": "Conf",
+      "name": "Gavrilut Dragos"
+    },
+    {
+      "id_" : "40",
+      "position": "Assistant",
+      "name": "Antoneac Andrada"
+    },
+    {
+      "id_" : "41",
+      "position": "Assistant",
+      "name": "Mutu Gheorghita"
+    },
+    {
+      "id_" : "42",
+      "position": "Assistant",
+      "name": "Damian Andrei"
+    }
+  ]
+}

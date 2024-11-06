@@ -1,4 +1,3 @@
-from curses.ascii import isspace
 from typing import Optional
 
 from returns.result import Result, Failure, Success

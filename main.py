@@ -1,69 +1,12 @@
 from io_utils.reading_bkt import read_all_data
 from io_utils.generating_data import generate_courses
 from io_utils.reading_bkt import read_all_data
-from algorithms.bkt import BKTAlgorithm
-from models.classroom import Classroom
-from models.constants import Day
 
-# Here we have the basic availability for the classrooms and instructors
-
-# class Classroom:
-#     availability = basic_availability
-
-#     def __init__(self, id, type):
-#         self.id = id
-#         self.type = type
-
-#     def __str__(self):
-#         availability_str = "\n".join([f"{day}: {', '.join(intervals)}" for day, intervals in self.availability.items()])
-#         return (
-#             f"Classroom: {self.id}\n"
-#             f"Type: {self.type}\n"
-#             f"Availability:\n{availability_str}"
-#         )
-
-
-# class Event:
-#     assigned_time = None
-#     classroom = None
-#     instructor = None
-
-#     def __init__(self, type, group, course):
-#         self.type = type
-#         self.group = group
-#         self.course = course
-
-#     def __str__(self):
-#         return (
-#             f"Event: {self.group}\n"
-#             f"Classroom: {self.classroom}\n"
-#             f"Course: {self.course}\n"
-#             f"Type: {self.type}\n"
-#             f"Instructor: {self.instructor}\n"
-#             f"Assigned Time: {self.assigned_time}"
-#         )
-
-
-# class StaffMember:
-#     availability = basic_availability
-
-#     def __init__(self, name, position, events=None):
-#         self.name = name
-#         self.position = position
-#         self.events = events
-
-#     def __str__(self):
-#         availability_str = "\n".join([f"{day}: {', '.join(intervals)}" for day, intervals in self.availability.items()])
-#         events_str = "\n".join([str(event) for event in self.events]) if self.events else "No events assigned"
-
-#         return (
-#             f"Staff Member: {self.name}\n"
-#             f"Position: {self.position}\n"
-#             f"Availability:\n{availability_str}\n"
-#             f"Assigned Events:\n{events_str}"
-#         )
-
-classrooms, staff_members, events = read_all_data('example_bkt')
+data = read_all_data('example_bkt')
+if data is None:
+    exit(-1)
+    
+classrooms, staff_members, events = data
 print(classrooms[0])
 print(staff_members[0])
 print (classrooms[0])

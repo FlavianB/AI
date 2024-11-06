@@ -1,4 +1,3 @@
-from curses.ascii import isspace
 from enum import Enum
 from returns.result import Result, Success, Failure
 from returns.pipeline import is_successful

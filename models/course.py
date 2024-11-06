@@ -18,7 +18,7 @@ class Course:
         self.__type = course_type
         self.__group = group
         self.__optional_package = event.get_optional_package()
-        # Instructors are chosen based on course type
+
         self.__instructors = (event.get_primary_instructors() if course_type == CourseType.LECTURE 
                               else event.get_secondary_instructors())
 

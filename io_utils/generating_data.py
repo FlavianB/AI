@@ -1,8 +1,5 @@
-from models.classroom import Classroom
-from models.staff_member import StaffMember
 from models.event import Event
 from models.course import Course, CourseType
-from typing import Optional
 
 from typing import List
 

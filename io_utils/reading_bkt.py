@@ -2,7 +2,6 @@ import json
 from typing import Optional
 
 from returns.pipeline import is_successful
-from returns.result import Success
 from models.classroom import Classroom
 from models.staff_member import StaffMember
 from models.event import Event
@@ -51,21 +50,6 @@ def _read_staff_members(data_set_path: str) -> Optional[list[StaffMember]]:
 
     return None if not is_valid else [staff_member.unwrap() for staff_member in staff_members]
 
-# Using results:
-# def read_events(data_set_path: str) -> Optional[list[Event]]:
-#     is_valid = True
-#     f = open(f'inputs/{data_set_path}/events.json')
-#     events_data = json.load(f)
-#     events = [Event.create(**event) for event in events_data['events']]
-#     for event in events:
-#         if (not is_successful(event)):
-#             is_valid = False
-#             print(event.failure())
-    
-#     return None if not is_valid else [event.unwrap() for event in events]
-
-
-# Without results:
 def _read_events(data_set_path: str) -> Optional[list[Event]]:
     f = open(f'inputs/{data_set_path}/events.json')
     events_data = json.load(f)

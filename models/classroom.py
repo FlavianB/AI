@@ -49,7 +49,7 @@ class Classroom:
         """
 
         err = ''
-        if isspace(id_):
+        if not id_.strip():
             err += 'Id of the class cannot be empty.\n'
         
         resultType =  ClassroomType.from_string(type_)

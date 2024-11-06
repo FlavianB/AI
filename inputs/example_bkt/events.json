@@ -3,7 +3,7 @@
     {
       "name" : "A5-TPM",
       "semester": 1,
-      "optional_package": "1",
+      "optional_package": 1,
       "primary_instructors": ["1"],
       "secondary_instructors": ["1"]
     }

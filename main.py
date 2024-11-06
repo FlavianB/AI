@@ -1,7 +1,6 @@
 import json
-from io_utils.reading_bkt import read_classrooms, read_staff_members, read_events
+from io_utils.reading_bkt import read_all_data
 from algorithms.bkt import BKTAlgorithm
-from io_utils.reading_bkt import read_classrooms
 from models.classroom import Classroom
 from models.constants import Day
 # Here we have the basic availability for the classrooms and instructors
@@ -62,30 +61,11 @@ from models.constants import Day
 #             f"Assigned Events:\n{events_str}"
 #         )
 
-classrooms = read_classrooms('example_bkt')
-if classrooms is None:
-    exit(0)
+classrooms, staff_members, events = read_all_data('example_bkt')
 print (classrooms[0])
-
 print("-----------------------------------------------------------")
-print (classrooms)
-BKTAlgorithm(classrooms)
-
-exit(0)
-f = open('events.json')
-events_data = json.load(f)
-events = [Event(**event) for event in events_data['events']]
-
-staff_members = read_staff_members('example_bkt')
-if staff_members is None:
-    exit(0)
 print(staff_members[0])
-
 print("-----------------------------------------------------------")
-
-events = read_events('example_bkt')
-if events is None:
-    exit(0)
 print(events[0])
 
 

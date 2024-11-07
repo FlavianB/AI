@@ -1,0 +1,10 @@
+{
+  "events": [
+    {
+      "name" : "OOP",
+      "semester": 1,
+      "primary_instructors": ["1"],
+      "secondary_instructors": ["2"]
+    }
+  ]
+}

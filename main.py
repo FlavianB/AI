@@ -1,4 +1,5 @@
 # PYTHON_ARGCOMPLETE_OK
+from time import perf_counter
 from icecream import ic
 
 from algorithms.bkt import BKTAlgorithm
@@ -18,8 +19,10 @@ def main():
     
     classrooms, staff_members, events = data
     courses = generate_courses(events, SEMESTER)
-    # for i in events:
-        # print (i)
+    for i in courses:
+        print (i)
+    
+    time_start = perf_counter()
     if (ALGORITHM == 'bkt'):
         algo = BKTAlgorithm(courses, classrooms, staff_members, events)
         if not algo.backtrack(0):
@@ -33,13 +36,15 @@ def main():
                 print (classroom.get_id(), interval)
                 for prof in profs:
                     print (prof.get_name())
-        exit(0)
     elif (ALGORITHM == "counting-bkt"):
         algo = BKTAlgorithm(courses, classrooms, staff_members, events)
 
         print(algo.backtrack_counting(0))
     else:
         print("Algorithm not implemented")
+
+    time_finish = perf_counter()
+    print (f"Time duration: {time_finish - time_start}")
 
 
 if __name__ == '__main__':

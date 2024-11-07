@@ -1,53 +1,8 @@
-from enum import Enum
-
 from models.classroom import Classroom, ClassroomType
 from models.course import Course, CourseType
 from models.event import Event
 from models.staff_member import StaffMember
-
-'''
-    We read M1 as interval: Monday 8:00-10:00
-    Digit 1 means 8:00-10:00
-    Digit 6 means 18:00-20:00
-    M - Monday
-    T - Tuesday
-    ...
-'''
-class TimeInterval(Enum):
-    M1 = 1,
-    M2 = 2,
-    M3 = 3,
-    M4 = 4,
-    M5 = 5,
-    M6 = 6,
-
-    T1 = 11,
-    T2 = 12,
-    T3 = 13,
-    T4 = 14,
-    T5 = 15,
-    T6 = 16,
-
-    W1 = 21,
-    W2 = 22,
-    W3 = 23,
-    W4 = 24,
-    W5 = 25,
-    W6 = 26,
-
-    TH1 = 31,
-    TH2 = 32,
-    TH3 = 33,
-    TH4 = 34,
-    TH5 = 35,
-    TH6 = 36,
-
-    F1 = 41,
-    F2 = 42,
-    F3 = 43,
-    F4 = 44,
-    F5 = 45,
-    F6 = 46,
+from models.time_interval import TimeInterval
 
 def are_groups_equal(group1: str, group2: str) -> bool:
     if group1 == 'ABE' or group2 == 'ABE':
@@ -80,16 +35,19 @@ class BKTAlgorithm:
             course_, (classroom_, staf_id, time_interval_) = solution
             event_ = next(event for event in self.events if event.get_id() == course_.get_event_id())
 
-            if time_interval_ == time_interval:
+            if time_interval_ != time_interval:
+                continue
                 # Check intersection of classroom with members
-                if classroom_ == classroom or len(set(staff_member_ids) & set(staf_id)):
-                    return False
-                if (event.get_semester() == event_.get_semester()
-                           and are_groups_equal(course_.get_group(), course.get_group())):
-                    if course.get_optional_package() is None or course_.get_optional_package is None:
-                        return False
-                    if (course.get_optional_package() == course_.get_optional_package()):
-                        return False
+            if classroom_ == classroom or len(set(staff_member_ids) & set(staf_id)):
+                return False
+            
+            if not (event.get_semester() == event_.get_semester()
+                        and are_groups_equal(course_.get_group(), course.get_group())):
+                continue
+            if course.get_optional_package() is None or course_.get_optional_package is None:
+                return False
+            if (course.get_optional_package() == course_.get_optional_package()):
+                return False
        
         return True
     def backtrack(self, course_index=0):
@@ -118,3 +76,37 @@ class BKTAlgorithm:
                     
                             self.solution.pop()
         return False
+    
+    def backtrack_counting(self, course_index=0):
+        if course_index == len(self.courses):
+            # for solution in self.solution:
+            #     (course, (classroom, ids, interval)) = solution
+            #     event = next(x for x in self.events if course.get_event_id() == x.get_id())
+            #     profs = list(filter(lambda x: any(x.get_id() == s_id for s_id in ids), self.staff_members))
+            #     print(event.get_name(), event.get_semester(), course.get_type(), course.get_group())
+            #     print (classroom.get_id(), interval)
+            #     for prof in profs:
+            #         print (prof.get_name())
+            # print("--------------------")
+            return 1
+        count = 0
+        course = self.courses[course_index]
+
+        classrooms = self.lecture_classes if course.get_type() == CourseType.LECTURE else self.laboratory_classes
+        for classroom in classrooms:
+            for time_interval in TimeInterval:
+                if (course.get_type() == CourseType.LECTURE):
+                    if self.is_valid_assignment(course, classroom, course.get_instructors(), time_interval):
+                        self.solution.append((course, (classroom, course.get_instructors(), time_interval))) # create solution
+                        count += self.backtrack_counting(course_index + 1)
+
+                        self.solution.pop()
+                else:
+                    for staff_member_id in course.get_instructors():
+                        if self.is_valid_assignment(course, classroom, [staff_member_id], time_interval):
+                            self.solution.append((course, (classroom, [staff_member_id], time_interval))) # create solution
+                        
+                            count += self.backtrack_counting(course_index + 1)
+                    
+                            self.solution.pop()
+        return count

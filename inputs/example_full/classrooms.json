@@ -1,0 +1,76 @@
+{
+  "classrooms": [
+    {
+      "id_": "C2",
+      "type_": "Lecture"
+    },
+    {
+      "id_": "C112",
+      "type_": "Lecture"
+    },
+    {
+      "id_": "C309",
+      "type_": "Lecture"
+    },
+    {
+      "id_": "C113",
+      "type_": "Lecture"
+    },
+    {
+      "id_": "C308",
+      "type_": "Lecture"
+    },
+    {
+      "id_": "210",
+      "type_": "Laboratory"
+    },
+    {
+      "id_": "205",
+      "type_": "Laboratory"
+    },
+    {
+      "id_": "401",
+      "type_": "Laboratory"
+    },
+    {
+      "id_": "403",
+      "type_": "Laboratory"
+    },
+    {
+      "id_": "405",
+      "type_": "Laboratory"
+    },
+    {
+      "id_": "C409",
+      "type_": "Laboratory"
+    },
+    {
+      "id_": "C411",
+      "type_": "Laboratory"
+    },
+    {
+      "id_": "C412",
+      "type_": "Laboratory"
+    },
+    {
+      "id_": "C413",
+      "type_": "Laboratory"
+    },
+    {
+      "id_": "C901",
+      "type_": "Laboratory"
+    },
+    {
+      "id_": "C903",
+      "type_": "Laboratory"
+    },
+    {
+      "id_": "C905",
+      "type_": "Laboratory"
+    },
+    {
+      "id_": "C909",
+      "type_": "Laboratory"
+    }
+  ]
+}

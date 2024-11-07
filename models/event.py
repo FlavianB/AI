@@ -48,8 +48,8 @@ class Event:
             err += f'Semester should be in interval 1-6, but has value {semester}.\n'
         if (optional_package is not None and (optional_package > 3 or optional_package < 1)):
             err += f"Optional should be in inverval 1-3 or None, but has value {optional_package}.\n"
-        if len(primary_instructors) == 0:
-            err += "There should exists primary instructors.\n"
+        if len(primary_instructors) == 0 and 'Engleza' not in name:
+            err += "There should exists primary instructors. There is an exception for any event which contains <Engleza>.\n"
         
         if err:
             return Failure(err)
@@ -62,11 +62,13 @@ class Event:
         DO NOT USE THIS METHOD OUTSIDE the `Classroom` class.
         """
         
-        self.__id = f"{semester} {''.join(word[0].upper() for word in name.split() if word) if len(name.split(' ')) != 1 else name}"
+        self.__id = f"{semester} {''.join(word[0].upper() for word in name.split() if len(word) > 3) if len(name.split(' ')) != 1 else name}"
+        if ("graf" in name):
+            self.__id += "graf"
         self.__name = name
         self.__semester = semester
         self.__optional_package = optional_package
-        self.__primary_instructors = primary_instructors
+        self.__primary_instructors = primary_instructors or []
         self.__secondary_instructors = secondary_instructors
 
     def get_id(self) -> str:

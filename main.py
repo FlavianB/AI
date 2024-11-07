@@ -18,8 +18,8 @@ def main():
     
     classrooms, staff_members, events = data
     courses = generate_courses(events, SEMESTER)
-    for i in events:
-        print (i)
+    # for i in events:
+        # print (i)
     if (ALGORITHM == 'bkt'):
         algo = BKTAlgorithm(courses, classrooms, staff_members, events)
         if not algo.backtrack(0):

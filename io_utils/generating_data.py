@@ -1,6 +1,5 @@
 from models.event import Event
 from models.course import Course, CourseType
-
 from typing import List
 
 def generate_courses(events: List[Event], semester: int) -> List[Course]:
@@ -8,7 +7,7 @@ def generate_courses(events: List[Event], semester: int) -> List[Course]:
 
     for event in events:
         # We will not add the events for the other semester
-        if event.get_semester() != semester % 2:
+        if event.get_semester() % 2 != semester % 2:
             continue
         if 'Engleza' in event.get_name():
             for i in range (1, 6):

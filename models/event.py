@@ -63,6 +63,8 @@ class Event:
         """
         
         self.__id = f"{semester} {''.join(word[0].upper() for word in name.split() if len(word) > 3) if len(name.split(' ')) != 1 else name}"
+        if ("graf" in name):
+            self.__id += "graf"
         self.__name = name
         self.__semester = semester
         self.__optional_package = optional_package

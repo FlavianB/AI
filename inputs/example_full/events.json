@@ -57,6 +57,27 @@
       "secondary_instructors": ["18"]
     },
     {
+      "name" : "Programare Rust",
+      "semester": 3,
+      "optional_package": 1,
+      "primary_instructors": ["39"],
+      "secondary_instructors": ["40", "41", "42"]
+    },
+    {
+      "name" : "Calcul cuantic",
+      "semester": 3,
+      "optional_package": 1,
+      "primary_instructors": ["2"],
+      "secondary_instructors": []
+    },
+    {
+      "name" : "Calculabilitate, decidabilitate si complexitate",
+      "semester": 3,
+      "optional_package": 1,
+      "primary_instructors": ["43"],
+      "secondary_instructors": ["44"]
+    },
+    {
       "name" : "Retele de calculatoare",
       "semester": 3,
       "primary_instructors": ["33", "34"],
@@ -69,10 +90,103 @@
       "secondary_instructors": ["36", "20"]
     },
     {
-      "name" : "Programare Rust",
+      "name" : "Algoritmica grafurilor",
       "semester": 3,
-      "primary_instructors": ["39" ],
-      "secondary_instructors": ["40", "41", "42"]
+      "primary_instructors": ["45"],
+      "secondary_instructors": ["46", "47", "14", "4"]
+    },
+    {
+      "name" : "Baze de Date",
+      "semester": 3,
+      "primary_instructors": ["48", "49"],
+      "secondary_instructors": ["50", "51", "52"]
+    },
+    {
+      "name" : "Animatii 3D: algoritmi si tehnici fundamentale",
+      "semester": 5,
+      "optional_package": 1,
+      "primary_instructors": ["53"],
+      "secondary_instructors": []
+    },
+    {
+      "name" : "Introducere in .NET",
+      "semester": 5,
+      "optional_package": 1,
+      "primary_instructors": ["54"],
+      "secondary_instructors": []
+    },
+    {
+      "name" : "Retele neuronale",
+      "semester": 5,
+      "optional_package": 1,
+      "primary_instructors": ["55"],
+      "secondary_instructors": ["56", "57"]
+    },
+    {
+      "name" : "Dezvoltarea sistemelor fizice utlizand microprocesoare",
+      "semester": 5,
+      "optional_package": 1,
+      "primary_instructors": ["48"],
+      "secondary_instructors": ["58"]
+    },
+    {
+      "name" : "Programare si modelare probabilista",
+      "semester": 5,
+      "optional_package": 2,
+      "primary_instructors": ["3"],
+      "secondary_instructors": ["56"]
+    },
+    {
+      "name" : "Introducere in realitate mixta",
+      "semester": 5,
+      "optional_package": 2,
+      "primary_instructors": ["59"],
+      "secondary_instructors": ["60", "61"]
+    },
+    {
+      "name" : "Capitole speciale de sisteme de operare",
+      "semester": 5,
+      "optional_package": 2,
+      "primary_instructors": ["62"],
+      "secondary_instructors": ["8"]
+    },
+    {
+      "name" : "Tehnici de programare",
+      "semester": 5,
+      "optional_package": 2,
+      "primary_instructors": ["63"],
+      "secondary_instructors": ["47"]
+    },
+    {
+      "name" : "Dezvoltare de progamare bazata pe verificare",
+      "semester": 5,
+      "optional_package": 2,
+      "primary_instructors": ["19"],
+      "secondary_instructors": []
+    },
+    {
+      "name" : "Programare in Python",
+      "semester": 5,
+      "primary_instructors": ["39"],
+      "secondary_instructors": ["44", "64", "65", "58", "72"]
+    },
+    {
+      "name" : "Inteligenta Artificiala",
+      "semester": 5,
+      "primary_instructors": ["13", "67"],
+      "secondary_instructors": ["68", "52"]
+    },
+    {
+      "name" : "Securitatea Informatiei",
+      "semester": 5,
+      "primary_instructors": ["43"],
+      "secondary_instructors": ["36", "44", "69", "70", "71"]
+    },
+    {
+      "name" : "Invatare Automata",
+      "semester": 5,
+      "primary_instructors": ["73"],
+      "secondary_instructors": ["56", "74", "75", "76", "77"]
     }
   ]
 }

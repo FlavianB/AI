@@ -183,7 +183,7 @@
       "secondary_instructors": ["36", "44", "69", "70", "71"]
     },
     {
-      "name" : "Invatare Automata",
+      "name" : "Machine Learning",
       "semester": 5,
       "primary_instructors": ["73"],
       "secondary_instructors": ["56", "74", "75", "76", "77"]

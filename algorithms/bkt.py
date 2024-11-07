@@ -76,3 +76,37 @@ class BKTAlgorithm:
                     
                             self.solution.pop()
         return False
+    
+    def backtrack_counting(self, course_index=0):
+        if course_index == len(self.courses):
+            # for solution in self.solution:
+            #     (course, (classroom, ids, interval)) = solution
+            #     event = next(x for x in self.events if course.get_event_id() == x.get_id())
+            #     profs = list(filter(lambda x: any(x.get_id() == s_id for s_id in ids), self.staff_members))
+            #     print(event.get_name(), event.get_semester(), course.get_type(), course.get_group())
+            #     print (classroom.get_id(), interval)
+            #     for prof in profs:
+            #         print (prof.get_name())
+            # print("--------------------")
+            return 1
+        count = 0
+        course = self.courses[course_index]
+
+        classrooms = self.lecture_classes if course.get_type() == CourseType.LECTURE else self.laboratory_classes
+        for classroom in classrooms:
+            for time_interval in TimeInterval:
+                if (course.get_type() == CourseType.LECTURE):
+                    if self.is_valid_assignment(course, classroom, course.get_instructors(), time_interval):
+                        self.solution.append((course, (classroom, course.get_instructors(), time_interval))) # create solution
+                        count += self.backtrack_counting(course_index + 1)
+
+                        self.solution.pop()
+                else:
+                    for staff_member_id in course.get_instructors():
+                        if self.is_valid_assignment(course, classroom, [staff_member_id], time_interval):
+                            self.solution.append((course, (classroom, [staff_member_id], time_interval))) # create solution
+                        
+                            count += self.backtrack_counting(course_index + 1)
+                    
+                            self.solution.pop()
+        return count

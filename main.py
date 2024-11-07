@@ -34,6 +34,10 @@ def main():
                 for prof in profs:
                     print (prof.get_name())
         exit(0)
+    elif (ALGORITHM == "counting-bkt"):
+        algo = BKTAlgorithm(courses, classrooms, staff_members, events)
+
+        print(algo.backtrack_counting(0))
     else:
         print("Algorithm not implemented")
 

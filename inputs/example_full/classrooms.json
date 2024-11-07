@@ -13,11 +13,19 @@
       "type_": "Lecture"
     },
     {
+      "id_": "C113",
+      "type_": "Lecture"
+    },
+    {
       "id_": "C308",
       "type_": "Lecture"
     },
     {
       "id_": "210",
+      "type_": "Laboratory"
+    },
+    {
+      "id_": "205",
       "type_": "Laboratory"
     },
     {

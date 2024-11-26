@@ -1,5 +1,7 @@
 from enum import Enum
 
+import numpy as np
+
 class Day(Enum):
     MONDAY = 1
     TUESDAY = 2
@@ -7,10 +9,8 @@ class Day(Enum):
     THURSDAY = 4
     FRIDAY = 5
 
-BASIC_AVAILABILITY: dict[Day, list[str]] = {
-    Day.MONDAY: ["08:00-10:00", "10:00-12:00", "12:00-14:00", "14:00-16:00", "16:00-18:00", "18:00-20:00"],
-    Day.TUESDAY: ["08:00-10:00", "10:00-12:00", "12:00-14:00", "14:00-16:00", "16:00-18:00", "18:00-20:00"],
-    Day.WEDNESDAY: ["08:00-10:00", "10:00-12:00", "12:00-14:00", "14:00-16:00", "16:00-18:00", "18:00-20:00"],
-    Day.THURSDAY: ["08:00-10:00", "10:00-12:00", "12:00-14:00", "14:00-16:00", "16:00-18:00", "18:00-20:00"],
-    Day.FRIDAY: ["08:00-10:00", "10:00-12:00", "12:00-14:00", "14:00-16:00", "16:00-18:00", "18:00-20:00"]
-}
+# We will consider the column a day of the week and the rows
+# will be the intervals of that day
+# If the value is 0 it is available. -1 means a hard constraint is in place.
+# 1 means it was taken.
+BASIC_AVAILABILITY: np.ndarray = np.zeros((6, 5))

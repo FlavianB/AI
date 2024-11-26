@@ -1,8 +1,13 @@
 import json
-from typing import Optional
+from typing import List, Optional
 
 from returns.pipeline import is_successful
 from models.classroom import Classroom
+from models.constraints.constraint import Constraint
+from models.constraints.create_constraint import create_constraint
+from models.constraints.preffered_event import PreferredEvent
+from models.constraints.unavailable_classroom_time import UnavailableClassroomTime
+from models.constraints.unavailable_staff_time import UnavailableStaffTime
 from models.staff_member import StaffMember
 from models.event import Event
 
@@ -27,6 +32,24 @@ def _read_classrooms(data_set_path: str) -> Optional[list[Classroom]]:
                 seen_ids.add(classroom_id)
 
     return None if not is_valid else [classroom.unwrap() for classroom in classrooms]
+
+def _read_constraints(data_set_path: str) -> Optional[list[Constraint]]:
+    is_valid = True
+    f = open(f'inputs/{data_set_path}/constraints.json')
+    constraints_data = json.load(f)
+    constraints: List[Constraint] = [
+    create_constraint(constraint_data) for constraint_data in constraints_data["constraints"]
+    ]
+    for constraint in constraints:
+        if isinstance(constraint, PreferredEvent):
+            print(f"Preferred Event: {constraint.classroom}, {constraint.instructor}, {constraint.course}")
+        elif isinstance(constraint, UnavailableStaffTime):
+            print(f"Unavailable Staff: {constraint.name}, {constraint.unavailability}")
+        elif isinstance(constraint, UnavailableClassroomTime):
+            print(f"Unavailable Classroom: {constraint.classroom_id}, {constraint.unavailability}")
+
+    return constraints
+    # return None if not is_valid else [constraint.unwrap() for constraint in constraints]
 
 def _read_staff_members(data_set_path: str) -> Optional[list[StaffMember]]:
     is_valid = True
@@ -66,10 +89,11 @@ def _read_events(data_set_path: str) -> Optional[list[Event]]:
 
     return None if not is_valid else [event.unwrap() for event in events]
 
-def read_all_data(data_set_path: str) -> Optional[tuple[list[Classroom], list[StaffMember], list[Event]]]:
+def read_all_data(data_set_path: str) -> Optional[tuple[list[Classroom], list[StaffMember], list[Event], list[Constraint]]]:
     classrooms = _read_classrooms(data_set_path)
     staff_members = _read_staff_members(data_set_path)
     events = _read_events(data_set_path)
+    constraints = _read_constraints(data_set_path)
     
     if staff_members is None or events is None:
         return None
@@ -83,4 +107,4 @@ def read_all_data(data_set_path: str) -> Optional[tuple[list[Classroom], list[St
             print(f"Ids for event {event.get_name()} are not corelated with any staff members with id {unknown_ids}.")
             is_valid = False
         
-    return None if not classrooms or not staff_members or not events or not is_valid else (classrooms, staff_members, events)
+    return None if not classrooms or not staff_members or not events or not constraints or not is_valid else (classrooms, staff_members, events, constraints)

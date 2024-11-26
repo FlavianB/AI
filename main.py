@@ -4,20 +4,18 @@ from icecream import ic
 
 from algorithms.bkt import BKTAlgorithm
 from cli import cli
-from io_utils.reading_bkt import read_all_data
+from io_utils.reading_bkt import read_all_data, _read_constraints
 from io_utils.generating_data import generate_courses
-from io_utils.reading_bkt import read_all_data
 
 ALGORITHM, INPUT, SEMESTER = cli.parse()
 ic(ALGORITHM, INPUT, SEMESTER)
 
 def main():
-
     data = read_all_data(INPUT)
     if data is None:
         exit(-1)
     
-    classrooms, staff_members, events = data
+    classrooms, staff_members, events, constraints = data
     courses = generate_courses(events, SEMESTER)
     for i in courses:
         print (i)
@@ -40,6 +38,10 @@ def main():
         algo = BKTAlgorithm(courses, classrooms, staff_members, events)
 
         print(algo.backtrack_counting(0))
+    elif (ALGORITHM == 'arc'):
+        # apply_constraints(constraints, classrooms, staff_members, events)
+        # algo = ArcAlgorithm()...
+        print("Arc applied")
     else:
         print("Algorithm not implemented")
 

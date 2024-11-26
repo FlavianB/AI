@@ -1,4 +1,5 @@
 from enum import Enum
+import numpy as np
 from returns.result import Result, Success, Failure
 from returns.pipeline import is_successful
 
@@ -31,7 +32,7 @@ class Classroom:
     __slots__ = '__id', '__type', 'availability'
     __id: str
     __type: ClassroomType
-    availability: dict[consts.Day, list[str]]
+    availability: np.ndarray
 
     @staticmethod
     def create(id_: str, type_: str) -> Result["Classroom", str]:
@@ -77,7 +78,7 @@ class Classroom:
         return self.__type
 
     def __str__(self):
-        availability_str = "\n".join([f"{day}: {', '.join(intervals)}" for day, intervals in self.availability.items()])
+        availability_str = "\n".join([f"{day}: {', '.join(intervals)}" for day, intervals in self.availability])
 
         return (
             f"Classroom: {self.__id}\n"

@@ -1,5 +1,6 @@
 from enum import Enum
 from typing import Dict, List
+import numpy as np
 from returns.result import Result, Success, Failure
 from returns.pipeline import is_successful
 import models.constants as consts
@@ -32,7 +33,7 @@ class StaffMember:
     __id: str
     __position: StaffMemberPosition
     __name: str
-    availability: Dict[consts.Day, List[str]]
+    availability: np.ndarray
 
     @staticmethod
     def create(id_: str, position: str, name: str) -> Result["StaffMember", str]:
@@ -82,7 +83,7 @@ class StaffMember:
         return self.__name
 
     def __str__(self):
-        availability_str = "\n".join([f"{day}: {', '.join(intervals)}" for day, intervals in self.availability.items()])
+        availability_str = "\n".join([f"{day}: {', '.join(day)}" for day in self.availability])
         return (
             f"StaffMember: {self.__id}\n"
             f"Position: {self.__position.name}\n"

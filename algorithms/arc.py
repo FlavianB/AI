@@ -8,6 +8,7 @@ from models.event import Event
 from models.staff_member import StaffMember
 from models.time_interval import TimeInterval
 from icecream import ic
+from collections import deque
 
 AssignmentType = tuple[Classroom, list[str], TimeInterval]
 
@@ -94,32 +95,143 @@ class ARCAlgorithm:
                 pass
         pass
 
-    def ac3(self, domains):
-        pass
+    def ac3(self, domains: dict[Course, list[AssignmentType]]) -> bool:
+        """
+        Applies the AC-3 algorithm to reduce the domains of the courses
+        by enforcing arc consistency based on binary constraints.
 
-    def backtrack(self, assignment, domains):
-        pass
+        Args:
+            domains (dict): A dictionary where keys are courses, and values are lists of possible assignments.
+
+        Returns:
+            bool: True if the domains remain consistent, False if a domain is emptied.
+        """
+        queue = deque()
+        
+        # Initialize the queue with all arcs
+        for course_i in self.courses:
+            for course_j in self.courses:
+                if course_i != course_j:
+                    queue.append((course_i, course_j))
+
+        while queue:
+            course_i, course_j = queue.popleft()
+            
+            if self.revise(domains, course_i, course_j):
+                # If a domain is emptied, no solution is possible
+                if not domains[course_i]:
+                    return False
+                # Add all neighbors of course_i back into the queue
+                for course_k in self.courses:
+                    if course_k != course_i and course_k != course_j:
+                        queue.append((course_k, course_i))
+        
+        return True
+
+    def revise(self, domains: dict[Course, list[AssignmentType]], course_i: Course, course_j: Course) -> bool:
+        """
+        Removes inconsistent values from the domain of course_i.
+
+        Args:
+            domains (dict): Current domains of the courses.
+            course_i (Course): The course whose domain is being revised.
+            course_j (Course): The course that imposes constraints on course_i.
+
+        Returns:
+            bool: True if the domain of course_i was revised, False otherwise.
+        """
+        revised = False
+
+        for assignment_i in domains[course_i][:]:
+            # Check if there exists an assignment for course_j that is compatible
+            if not any(self.are_compatible(assignment_i, assignment_j, course_i, course_j)
+                       for assignment_j in domains[course_j]):
+                domains[course_i].remove(assignment_i)
+                revised = True
+        
+        return revised
+
+    def are_compatible(self, assignment_i: AssignmentType, assignment_j: AssignmentType, course_i: Course, course_j: Course) -> bool:
+        """
+        Checks whether two assignments are compatible based on constraints.
+
+        Args:
+            assignment_i (AssignmentType): Assignment for course_i.
+            assignment_j (AssignmentType): Assignment for course_j.
+            course_i (Course): The first course.
+            course_j (Course): The second course.
+
+        Returns:
+            bool: True if the assignments are compatible, False otherwise.
+        """
+        class_i, staff_i, time_i = assignment_i
+        class_j, staff_j, time_j = assignment_j
+
+        # Time conflict
+        if time_i == time_j:
+            # Check for classroom conflict
+            if class_i == class_j:
+                return False
+            # Check for staff conflict
+            if set(staff_i) & set(staff_j):
+                return False
+
+        # Additional constraints can be implemented here if needed
+        return True
+
+    def backtrack(self, course_index=0):
+        if course_index == len(self.courses):
+            return True
+
+        course = self.courses[course_index]
+        classrooms = self.lecture_classes if course.get_type() == CourseType.LECTURE else self.laboratory_classes
+        for classroom in classrooms:
+            for time_interval in TimeInterval:
+                if course.get_type() == CourseType.LECTURE:
+                    if self.is_valid_assignment(course, classroom, course.get_instructors(), time_interval):
+                        self.solution.append((course, (classroom, course.get_instructors(), time_interval)))
+                        if self.backtrack(course_index + 1):
+                            return True
+                        self.solution.pop()
+                else:
+                    for staff_member_id in course.get_instructors():
+                        if self.is_valid_assignment(course, classroom, [staff_member_id], time_interval):
+                            self.solution.append((course, (classroom, [staff_member_id], time_interval)))
+                            if self.backtrack(course_index + 1):
+                                return True
+                            self.solution.pop()
+
+        return False
+    
+    def is_valid_assignment(self, course: Course, classroom: Classroom, staff_member_ids: list[str], time_interval: TimeInterval):
+        for solution_course, (solution_classroom, solution_staff, solution_time) in self.solution:
+            if time_interval == solution_time:
+                if solution_classroom == classroom or set(solution_staff) & set(staff_member_ids):
+                    return False
+
+                if not self.are_groups_compatible(course, solution_course):
+                    return False
+
+        return True
+
+    def are_groups_compatible(self, course1: Course, course2: Course) -> bool:
+        if course1.get_group() == "ABE" or course2.get_group() == "ABE":
+            return True
+        return course1.get_group()[0] == course2.get_group()[0]
 
     def solve(self):
+        """
+        Executes the scheduling process using AC-3 and backtracking.
+        """
         self.apply_global_hard_constraints()
-        domains: dict[Course, list[AssignmentType]] = self.initialize_domains()
-        # print(sum(len(value) for value in domains.values()))
+        domains = self.initialize_domains()
 
-        print(len(domains[self.courses[10]]))
-
-        ac3_result = self.ac3(domains)
-        if not ac3_result:
+        if not self.ac3(domains):
             print("No solution exists after applying AC-3.")
             return False
-        assignment = {}
-        result = self.backtrack(assignment, domains)
-        if result:
-            print("Solution found.")
+
+        if self.backtrack():
+            self.solution = [(course, domains[course][0]) for course in self.courses]  # First valid assignment
             return True
         else:
-            print("No solution exists.")
             return False
-        # su = 0
-            # print (i)
-            # break
-        # print (su)

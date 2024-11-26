@@ -2,6 +2,7 @@
 from time import perf_counter
 from icecream import ic
 
+from algorithms.arc import ARCAlgorithm
 from algorithms.bkt import BKTAlgorithm
 from cli import cli
 from io_utils.reading_bkt import read_all_data, _read_constraints
@@ -41,6 +42,8 @@ def main():
     elif (ALGORITHM == 'arc'):
         # apply_constraints(constraints, classrooms, staff_members, events)
         # algo = ArcAlgorithm()...
+        algo = ARCAlgorithm(courses, classrooms, staff_members, events, constraints)
+        algo.solve()
         print("Arc applied")
     else:
         print("Algorithm not implemented")

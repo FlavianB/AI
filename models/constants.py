@@ -13,4 +13,4 @@ class Day(Enum):
 # will be the intervals of that day
 # If the value is 0 it is available. -1 means a hard constraint is in place.
 # 1 means it was taken.
-BASIC_AVAILABILITY: np.ndarray = np.zeros((6, 5))
+BASIC_AVAILABILITY: np.ndarray = np.zeros((6, 5), dtype=np.int8)

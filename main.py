@@ -39,12 +39,19 @@ def main():
         algo = BKTAlgorithm(courses, classrooms, staff_members, events)
 
         print(algo.backtrack_counting(0))
-    elif (ALGORITHM == 'arc'):
-        # apply_constraints(constraints, classrooms, staff_members, events)
-        # algo = ArcAlgorithm()...
+    elif ALGORITHM == 'arc':
         algo = ARCAlgorithm(courses, classrooms, staff_members, events, constraints)
-        algo.solve()
-        print("Arc applied")
+        if algo.solve():
+            for solution in algo.solution:
+                (course, (classroom, ids, interval)) = solution
+                event = next(x for x in events if course.get_event_id() == x.get_id())
+                profs = list(filter(lambda x: any(x.get_id() == s_id for s_id in ids), staff_members))
+                print(event.get_name(), event.get_semester(), course.get_type(), course.get_group())
+                print(classroom.get_id(), interval)
+                for prof in profs:
+                    print(prof.get_name())
+        else:
+            print("No schedule possible with ARC consistency.")
     else:
         print("Algorithm not implemented")
 

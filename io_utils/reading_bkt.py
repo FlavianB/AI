@@ -40,13 +40,13 @@ def _read_constraints(data_set_path: str) -> Optional[list[Constraint]]:
     constraints: List[Constraint] = [
     create_constraint(constraint_data) for constraint_data in constraints_data["constraints"]
     ]
-    for constraint in constraints:
-        if isinstance(constraint, PreferredEvent):
-            print(f"Preferred Event: {constraint.classroom}, {constraint.instructor}, {constraint.course}")
-        elif isinstance(constraint, UnavailableStaffTime):
-            print(f"Unavailable Staff: {constraint.name}, {constraint.unavailability}")
-        elif isinstance(constraint, UnavailableClassroomTime):
-            print(f"Unavailable Classroom: {constraint.classroom_id}, {constraint.unavailability}")
+    # for constraint in constraints:
+    #     if isinstance(constraint, PreferredEvent):
+    #         print(f"Preferred Event: {constraint.classroom}, {constraint.instructor}, {constraint.course}")
+    #     elif isinstance(constraint, UnavailableStaffTime):
+    #         print(f"Unavailable Staff: {constraint.name}, {constraint.unavailability}")
+    #     elif isinstance(constraint, UnavailableClassroomTime):
+    #         print(f"Unavailable Classroom: {constraint.classroom_id}, {constraint.unavailability}")
 
     return constraints
     # return None if not is_valid else [constraint.unwrap() for constraint in constraints]

@@ -18,8 +18,8 @@ def main():
     
     classrooms, staff_members, events, constraints = data
     courses = generate_courses(events, SEMESTER)
-    for i in courses:
-        print (i)
+    # for i in courses:
+    #     print (i)
     
     time_start = perf_counter()
     if (ALGORITHM == 'bkt'):

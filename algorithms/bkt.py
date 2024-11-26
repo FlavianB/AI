@@ -44,7 +44,7 @@ class BKTAlgorithm:
             if not (event.get_semester() == event_.get_semester()
                         and are_groups_equal(course_.get_group(), course.get_group())):
                 continue
-            if course.get_optional_package() is None or course_.get_optional_package is None:
+            if course.get_optional_package() is None or course_.get_optional_package() is None:
                 return False
             if (course.get_optional_package() == course_.get_optional_package()):
                 return False

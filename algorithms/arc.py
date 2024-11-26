@@ -80,8 +80,8 @@ class ARCAlgorithm:
                 continue
             if isinstance(constraint, UnavailableClassroomTime):
                 classroom = next(classroom for classroom in self.lecture_classes if classroom.get_id() == constraint.classroom_id)
-                classroom.availability[:, :] = -1
-                classroom.availability[:, 0] = 0
+                # classroom.availability[:, :] = -1
+                # classroom.availability[:, 0] = 0
                 # classroom.availability[0,3] = -1
                 
             if isinstance(constraint, UnavailableStaffTime):
@@ -103,6 +103,10 @@ class ARCAlgorithm:
     def solve(self):
         self.apply_global_hard_constraints()
         domains: dict[Course, list[AssignmentType]] = self.initialize_domains()
+        # print(sum(len(value) for value in domains.values()))
+
+        print(len(domains[self.courses[10]]))
+
         ac3_result = self.ac3(domains)
         if not ac3_result:
             print("No solution exists after applying AC-3.")
@@ -115,9 +119,7 @@ class ARCAlgorithm:
         else:
             print("No solution exists.")
             return False
-        # print(len(domains[self.courses[1]]))
         # su = 0
-        # print(sum(len(value) for value in domains.values()))
             # print (i)
             # break
         # print (su)

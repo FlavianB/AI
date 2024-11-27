@@ -7,13 +7,13 @@ time_map = {
     "T3": "Tuesday 12:00-14:00", "T4": "Tuesday 14:00-16:00", "T5": "Tuesday 16:00-18:00", "T6": "Tuesday 18:00-20:00",
     "W1": "Wednesday 08:00-10:00", "W2": "Wednesday 10:00-12:00", "W3": "Wednesday 12:00-14:00", "W4": "Wednesday 14:00-16:00", "W5" : "Wednesday 16:00-18:00",  "W6" : "Wednesday 18:00-20:00",
     "TH1": "Thursday 08:00-10:00", "TH2": "Thursday 10:00-12:00", "TH3": "Thursday 12:00-14:00", "TH4": "Thursday 14:00-16:00", "TH5": "Thursday 16:00-18:00",
-    "TH6": "Thursday 18:00-20:00","F1": "Friday 08:00-10:00", "F2": "Friday 10:00-12:00", "F3": "Friday 12:00-14:00", "F4": "Friday 14:00-16:00", "F5": "Friday 16:00-18:00"
+    "TH6": "Thursday 18:00-20:00","F1": "Friday 08:00-10:00", "F2": "Friday 10:00-12:00", "F3": "Friday 12:00-14:00", "F4": "Friday 14:00-16:00", "F5": "Friday 16:00-18:00", "F6": "Friday 18:00-20:00"
 }
 
 def parse_file(file_path):
     data = []
     
-    with open(file_path, 'r', encoding="utf-16") as file:
+    with open(file_path, 'r', encoding="utf-8") as file:
         lines = file.readlines()
         i = 0
         while i < len(lines):
@@ -66,7 +66,7 @@ def display_timetable(timetable):
         print(tabulate(events, headers="keys", tablefmt="grid"))
         print("\n" + "="*40)
 
-file_path = 'to_format.txt' 
+file_path = 'outputs/to_format.txt'
 data = parse_file(file_path)
 grouped_data = group_by_group(data)  
 sorted_timetable = format_timetable(grouped_data)

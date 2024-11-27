@@ -62,26 +62,6 @@ def generate_html_page_by_group(data_dict, output_file="outputs/timetable_by_gro
         file.write(soup.prettify())
 
 
-# Example usage
-example_data = {
-    "ABE Timetable": [
-        {"Course": "TPM", "Year": 1, "Type": "LECTURE", "Group": "ABE", "Room": "C2", "Time": "Monday 08:00-10:00",
-         "Instructor": "Dr. Smith"},
-        {"Course": "CS", "Year": 2, "Type": "LAB", "Group": "ABE", "Room": "B1", "Time": "Wednesday 10:00-12:00",
-         "Instructor": "Prof. White"}
-    ],
-    "A Timetable": [
-        {"Course": "TPM", "Year": 1, "Type": "LABORATORY", "Group": "A", "Room": "C401", "Time": "Monday 10:00-12:00",
-         "Instructor": "Dr. Smith"},
-        {"Course": "ML", "Year": 1, "Type": "LECTURE", "Group": "A", "Room": "C2", "Time": "Monday 12:00-14:00",
-         "Instructor": "Dr. Brown"},
-        {"Course": "TPM", "Year": 2, "Type": "LECTURE", "Group": "B", "Room": "C3", "Time": "Tuesday 14:00-16:00",
-         "Instructor": "Dr. Lee"},
-    ],
-}
-
-# generate_html_page_by_group(example_data)
-
 file_path = 'outputs/to_format.txt'
 data = parse_file(file_path)
 grouped_data = group_by_group(data)

@@ -39,7 +39,7 @@ def main():
         algo = BKTAlgorithm(courses, classrooms, staff_members, events)
 
         print(algo.backtrack_counting(0))
-    elif ALGORITHM == 'arc':
+    elif ALGORITHM == 'arc-bkt':
         algo = ARCAlgorithm(courses, classrooms, staff_members, events, constraints)
         if algo.solve():
             for solution in algo.solution:

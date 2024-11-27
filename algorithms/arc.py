@@ -33,7 +33,20 @@ class ARCAlgorithm:
     
     def initialize_domains(self):
         domains = {}
+
+        # To be added preffered events
+        # preffered_event_constraints = [constraint for constraint in self.constraints if isinstance(constraint, PreferredEvent)]
+
+        # for constraint in self.constraints:
+        #     if isinstance(constraint, PreferredEvent):
+        #         course = next(course for course in self.courses if course.get_event_id() == constraint.get_course_name() and course.get_group() == constraint.get_group())
+        #         domains[course] = []
+
+
+
         for course in self.courses:
+            if domains.get(course) is not None:
+                continue
             possible_assignments = []
             classrooms = self.lecture_classes if course.get_type() == CourseType.LECTURE else self.laboratory_classes
             for classroom in classrooms:
@@ -50,9 +63,7 @@ class ARCAlgorithm:
         return domains
 
     def local_constraints_satisfied(self, course, assignment: AssignmentType) -> bool:
-        # Check constraints that involve only the course and the assignment
         classroom, staff_member_ids, time_interval = assignment
-        # Check if the classroom type matches the course type
         line, col = time_interval.convertToMatrixIndices()
 
         if course.get_type() == CourseType.LECTURE and classroom.get_type() != ClassroomType.LECTURE:
@@ -71,28 +82,19 @@ class ARCAlgorithm:
     
     def apply_global_hard_constraints(self):
         for constraint in self.constraints:
-            ic(constraint)
-            # we will hardcode the constraints for now
             if constraint.get_weight() != Weight.HARD:
                 continue
             if isinstance(constraint, UnavailableClassroomTime):
-                classroom = next(classroom for classroom in self.lecture_classes if classroom.get_id() == constraint.classroom_id)
-                classroom.availability[:, :] = -1
-                classroom.availability[:, 0] = 0
-                for classroom in self.laboratory_classes:
-                    classroom.availability[:, :] = -1
-                    classroom.availability[:, 0] = 0
-                # classroom.availability[0,3] = -1
+                classroom = next(classroom for classroom in self.lecture_classes if classroom.get_id() == constraint.get_classroom_id())
+                for interval in constraint.get_time_intervals():
+                    line, col = interval.convertToMatrixIndices()
+                    classroom.availability[line, col] = -1
                 
             if isinstance(constraint, UnavailableStaffTime):
-                staff_member = next(member for member in self.staff_members if member.get_name() == constraint.name)
-                # staff_member.availability[0,2] = -1
-                # staff_member.availability[0,3] = -1
-
-                pass
-            if isinstance(constraint, PreferredEvent):
-                pass
-        pass
+                staff_member = next(member for member in self.staff_members if member.get_name() == constraint.get_name())
+                for interval in constraint.get_time_intervals():
+                    line, col = interval.convertToMatrixIndices()
+                    staff_member.availability[line, col] = -1
 
     def ac3(self, domains: dict[Course, list[AssignmentType]]) -> bool:
         """

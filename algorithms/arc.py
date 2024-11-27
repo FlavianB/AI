@@ -1,4 +1,5 @@
 from models.classroom import Classroom, ClassroomType
+from models.constraints.constants import Weight
 from models.constraints.constraint import Constraint
 from models.constraints.preffered_event import PreferredEvent
 from models.constraints.unavailable_classroom_time import UnavailableClassroomTime
@@ -71,7 +72,7 @@ class ARCAlgorithm:
     def apply_global_hard_constraints(self):
         for constraint in self.constraints:
             # we will hardcode the constraints for now
-            if constraint.weight != 'hard':
+            if constraint.get_weight() != Weight.HARD:
                 continue
             if isinstance(constraint, UnavailableClassroomTime):
                 classroom = next(classroom for classroom in self.lecture_classes if classroom.get_id() == constraint.classroom_id)

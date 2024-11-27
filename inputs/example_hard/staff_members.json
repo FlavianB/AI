@@ -1,0 +1,24 @@
+{
+  "staff_members": [
+    {
+      "id_" : "1",
+      "position": "Lecturer",
+      "name": "Dr. Smith"
+    },
+    {
+      "id_" : "2",
+      "position": "Lecturer",
+      "name": "Dr. Brown"
+    },
+    {
+      "id_" : "3",
+      "position": "Assistant",
+      "name": "Dr. Johnson"
+    },
+    {
+      "id_" : "4",
+      "position": "Assistant",
+      "name": "Dr. White"
+    }
+  ]
+}

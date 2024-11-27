@@ -12,12 +12,6 @@ from collections import deque
 
 AssignmentType = tuple[Classroom, list[str], TimeInterval]
 
-# The main function is solve
-# in solve we first apply all hard constraints(yet to be implemented)
-# we initilize all the possible domains without those which creates conflicts 
-# with the hard constraints
-# we trim down the domain by applying ac3
-# afterwards we do the backtracking
 class ARCAlgorithm:
     staff_members: list[StaffMember]
     courses: list[Course]
@@ -81,8 +75,11 @@ class ARCAlgorithm:
                 continue
             if isinstance(constraint, UnavailableClassroomTime):
                 classroom = next(classroom for classroom in self.lecture_classes if classroom.get_id() == constraint.classroom_id)
-                # classroom.availability[:, :] = -1
-                # classroom.availability[:, 0] = 0
+                classroom.availability[:, :] = -1
+                classroom.availability[:, 0] = 0
+                for classroom in self.laboratory_classes:
+                    classroom.availability[:, :] = -1
+                    classroom.availability[:, 0] = 0
                 # classroom.availability[0,3] = -1
                 
             if isinstance(constraint, UnavailableStaffTime):
@@ -175,7 +172,8 @@ class ARCAlgorithm:
             # Check for staff conflict
             if set(staff_i) & set(staff_j):
                 return False
-
+            if self.are_groups_compatible(course_i, course_j):
+                return False
         # Additional constraints can be implemented here if needed
         return True
 
@@ -217,7 +215,10 @@ class ARCAlgorithm:
     def are_groups_compatible(self, course1: Course, course2: Course) -> bool:
         if course1.get_group() == "ABE" or course2.get_group() == "ABE":
             return True
-        return course1.get_group()[0] == course2.get_group()[0]
+        if len(course1.get_group()) == 2 and len(course2.get_group()) == 2:
+            return course1.get_group() == course2.get_group()
+        else:
+            return course1.get_group() == course2.get_group()[0]
 
     def solve(self):
         """
@@ -229,7 +230,7 @@ class ARCAlgorithm:
         if not self.ac3(domains):
             print("No solution exists after applying AC-3.")
             return False
-
+        exit(0)
         if self.backtrack():
             self.solution = [(course, domains[course][0]) for course in self.courses]  # First valid assignment
             return True

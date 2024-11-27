@@ -46,7 +46,7 @@ class ARCAlgorithm:
                         assignment: AssignmentType = (classroom, staff_member_ids, time_interval)
                         if self.local_constraints_satisfied(course, assignment):
                             possible_assignments.append(assignment)
-                domains[course] = possible_assignments
+            domains[course] = possible_assignments
         return domains
 
     def local_constraints_satisfied(self, course: Course, assignment: AssignmentType) -> bool:
@@ -90,7 +90,7 @@ class ARCAlgorithm:
             if isinstance(constraint, PreferredEvent):
                 pass
 
-    def ac3(self, domains: dict[Course, list[AssignmentType]], assignment: dict[Course, AssignmentType]) -> bool:
+    def ac3(self, domains: dict[Course, list[AssignmentType]], assignment: dict[Course, AssignmentType] = {}) -> bool:
         """
         Applies the AC-3 algorithm to reduce the domains of the courses
         by enforcing arc consistency based on binary constraints.
@@ -187,9 +187,9 @@ class ARCAlgorithm:
         if course1.get_group() == "ABE" or course2.get_group() == "ABE":
             return True
         if len(course1.get_group()) == 2 and len(course2.get_group()) == 2:
-            return course1.get_group() == course2.get_group()
+            return course1.get_group() != course2.get_group()
         else:
-            return course1.get_group() == course2.get_group()[0]
+            return course1.get_group() != course2.get_group()[0]
 
     def select_unassigned_variable(self, assignment: dict[Course, AssignmentType], domains: dict[Course, list[AssignmentType]]) -> Course:
         unassigned_courses = [c for c in self.courses if c not in assignment]
@@ -239,12 +239,22 @@ class ARCAlgorithm:
         """
         self.apply_global_hard_constraints()
         domains = self.initialize_domains()
-        assignment = {}
 
-        # Initial AC-3 call
-        if not self.ac3(domains, assignment):
-            print("No solution exists after applying AC-3.")
+        # Apply AC-3 as a preprocessing step and print the domains
+        initial_ac3_result = self.ac3(domains)
+        if not initial_ac3_result:
+            print("No solution exists after applying AC-3 as preprocessing.")
             return False
+
+        # Print the domains after AC-3 preprocessing
+        print("\nDomains after AC-3 preprocessing:")
+        for course in self.courses:
+            print(f"Course {course.get_event_id()} domain:")
+            for assignment in domains[course]:
+                classroom, staff_member_ids, time_interval = assignment
+                print(f"  Classroom: {classroom.get_id()}, Staff: {staff_member_ids}, Time: {time_interval}")
+
+        assignment = {}
 
         if self.backtrack(assignment, domains):
             print("Solution found.")

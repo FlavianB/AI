@@ -82,19 +82,19 @@ class ARCAlgorithm:
 
     def apply_global_hard_constraints(self):
         for constraint in self.constraints:
-            if constraint.get_weight() != Weight.HARD:
+            if constraint.get_weight() != Weight.HARD.value:
                 continue
             if isinstance(constraint, UnavailableClassroomTime):
                 classroom = next(classroom for classroom in self.lecture_classes if classroom.get_id() == constraint.get_classroom_id())
                 for interval in constraint.get_time_intervals():
                     line, col = interval.convertToMatrixIndices()
                     classroom.availability[line, col] = -1
-                
             if isinstance(constraint, UnavailableStaffTime):
                 staff_member = next(member for member in self.staff_members if member.get_name() == constraint.get_name())
                 for interval in constraint.get_time_intervals():
                     line, col = interval.convertToMatrixIndices()
                     staff_member.availability[line, col] = -1
+                
 
     def ac3(self, domains: dict[Course, list[AssignmentType]], assignment: dict[Course, AssignmentType] = {}) -> bool:
         """
@@ -245,7 +245,6 @@ class ARCAlgorithm:
         """
         self.apply_global_hard_constraints()
         domains = self.initialize_domains()
-
         # Apply AC-3 as a preprocessing step and print the domains
         initial_ac3_result = self.ac3(domains)
         if not initial_ac3_result:

@@ -1,0 +1,41 @@
+{
+  "events": [
+    {
+      "name" : "TPM",
+      "semester": 1,
+      "optional_package": 1,
+      "primary_instructors": ["1"],
+      "secondary_instructors": ["3"]
+    },
+    {
+      "name" : "ML",
+      "semester": 1,
+      "primary_instructors": ["2"],
+      "secondary_instructors": ["3, 4"]
+    },
+    {
+      "name" : "AI",
+      "semester": 1,
+      "primary_instructors": ["1"],
+      "secondary_instructors": ["4"]
+    },
+    {
+      "name" : "DB",
+      "semester": 1,
+      "primary_instructors": ["1"],
+      "secondary_instructors": ["3", "4"]
+    },
+    {
+      "name" : "SE",
+      "semester": 1,
+      "primary_instructors": ["2"],
+      "secondary_instructors": ["4"]
+    },
+    {
+      "name" : "OOP",
+      "semester": 2,
+      "primary_instructors": ["1"],
+      "secondary_instructors": ["2"]
+    }
+  ]
+}

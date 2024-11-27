@@ -1,0 +1,51 @@
+{
+  "constraints": [
+    {
+      "type": "unavailable_staff_time",
+      "name": "Dr. Smith",
+      "unavailability": {
+        "Monday": ["08:00-10:00"],
+        "Tuesday": ["08:00-10:00"]
+      },
+      "weight": "hard"
+    },
+    {
+      "type": "unavailable_staff_time",
+      "name": "Dr. Brown",
+      "unavailability": {
+        "Monday": ["08:00-10:00", "10:00-12:00"],
+        "Tuesday": ["08:00-10:00"]
+      },
+      "weight": "hard"
+    },
+    {
+      "type": "unavailable_classroom_time",
+      "id": "C2",
+      "unavailability": {
+        "Friday": ["08:00-10:00", "10:00-12:00"]
+      },
+      "weight": "hard"
+    },
+    {
+      "type": "unavailable_classroom_time",
+      "id": "C112",
+      "unavailability": {
+        "Wednesday": ["12:00-14:00", "14:00-16:00"],
+        "Thursday": ["12:00-14:00", "14:00-16:00"]
+      },
+      "weight": "hard"
+    },
+    {
+      "type": "preferred_event",
+      "classroom" : "C411",
+      "instructor": "Dr. Johnson",
+      "course": "ML",
+      "group": "A2",
+      "event_type": "Laboratory",
+      "preferred_time": {
+        "Wednesday": ["10:00-12:00"]
+      },
+      "weight": "hard"
+    }
+  ]
+}

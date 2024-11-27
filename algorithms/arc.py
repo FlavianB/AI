@@ -71,6 +71,7 @@ class ARCAlgorithm:
     
     def apply_global_hard_constraints(self):
         for constraint in self.constraints:
+            ic(constraint)
             # we will hardcode the constraints for now
             if constraint.get_weight() != Weight.HARD:
                 continue

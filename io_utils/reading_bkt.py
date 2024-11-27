@@ -37,9 +37,14 @@ def _read_constraints(data_set_path: str) -> Optional[list[Constraint]]:
     is_valid = True
     f = open(f'inputs/{data_set_path}/constraints.json')
     constraints_data = json.load(f)
-    constraints: List[Constraint] = [
-    create_constraint(constraint_data) for constraint_data in constraints_data["constraints"]
-    ]
+    constraints_result = [create_constraint(constraint_data) for constraint_data in constraints_data["constraints"]]
+
+    for constraint in constraints_result:
+        if not is_successful(constraint):
+            is_valid = False
+            print(constraint.failure())
+        else:
+            pass
     # for constraint in constraints:
     #     if isinstance(constraint, PreferredEvent):
     #         print(f"Preferred Event: {constraint.classroom}, {constraint.instructor}, {constraint.course}")
@@ -48,8 +53,7 @@ def _read_constraints(data_set_path: str) -> Optional[list[Constraint]]:
     #     elif isinstance(constraint, UnavailableClassroomTime):
     #         print(f"Unavailable Classroom: {constraint.classroom_id}, {constraint.unavailability}")
 
-    return constraints
-    # return None if not is_valid else [constraint.unwrap() for constraint in constraints]
+    return None if not is_valid else [constraint.unwrap() for constraint in constraints_result]
 
 def _read_staff_members(data_set_path: str) -> Optional[list[StaffMember]]:
     is_valid = True
@@ -94,7 +98,7 @@ def read_all_data(data_set_path: str) -> Optional[tuple[list[Classroom], list[St
     staff_members = _read_staff_members(data_set_path)
     events = _read_events(data_set_path)
     constraints = _read_constraints(data_set_path)
-    
+
     if staff_members is None or events is None:
         return None
     

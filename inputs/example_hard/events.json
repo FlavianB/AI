@@ -11,7 +11,7 @@
       "name" : "ML",
       "semester": 1,
       "primary_instructors": ["2"],
-      "secondary_instructors": ["3, 4"]
+      "secondary_instructors": ["3", "4"]
     },
     {
       "name" : "AI",

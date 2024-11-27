@@ -1,0 +1,32 @@
+{
+  "classrooms": [
+    {
+      "id_": "C2",
+      "type_": "Lecture"
+    },
+    {
+      "id_": "C112",
+      "type_": "Lecture"
+    },
+    {
+      "id_": "C309",
+      "type_": "Lecture"
+    },
+    {
+      "id_": "C401",
+      "type_": "Laboratory"
+    },
+    {
+      "id_": "C411",
+      "type_": "Laboratory"
+    },
+    {
+      "id_": "C412",
+      "type_": "Laboratory"
+    },
+    {
+      "id_": "C413",
+        "type_": "Laboratory"
+    }
+  ]
+}

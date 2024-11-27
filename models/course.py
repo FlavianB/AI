@@ -1,10 +1,18 @@
 from enum import Enum
 from typing import Optional
 from models.event import Event
+from returns.result import Result, Success, Failure
 
 class CourseType(Enum):
     LECTURE = 'Lecture'
     LABORATORY = 'Laboratory'
+
+    @staticmethod
+    def from_string(value: str) -> Result['CourseType', str]:
+        try:
+            return Success(CourseType(value))
+        except ValueError:
+            return Failure(f"Invalid course type '{value}'.\n")
 
 class Course:
     __event_id: str

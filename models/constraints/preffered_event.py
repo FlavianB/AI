@@ -47,23 +47,22 @@ class PreferredEvent(Constraint):
         err = ""
         time_intervals: list[TimeInterval] = []
 
-        # if not classroom_id.strip():
-        #     err += 'Id of the classroom cannot be empty.\n'
-        # if unavailability is None or not len(unavailability.keys()):
-        #     err += "The constraint should contain at least one unavailablity interval.\n"
+        event_type_result = CourseType.from_string(event_type)
+        if not is_successful(event_type_result):
+            err+= event_type_result.failure()
 
-        # for key, values in unavailability.items():
-        #     for value in values:
-        #         time_interval_result = TimeInterval.from_input(key, value)
-        #         if not is_successful(time_interval_result):
-        #             err += time_interval_result.failure()
-        #         else:
-        #             time_intervals.append(time_interval_result.unwrap())
+        for key, values in preferred_time.items():
+            for value in values:
+                time_interval_result = TimeInterval.from_input(key, value)
+                if not is_successful(time_interval_result):
+                    err += time_interval_result.failure()
+                else:
+                    time_intervals.append(time_interval_result.unwrap())
 
-        # if err:
-        #     return Failure(err)
+        if err:
+            return Failure(err)
 
-        return Success(PreferredEvent(classroom, instructor ,course, group, CourseType.LECTURE, preferred_time=[TimeInterval.F1], weight=weight))
+        return Success(PreferredEvent(classroom, instructor ,course, group, CourseType.LECTURE, time_intervals, weight))
     
     def get_classroom_id(self) -> str:
         return self.__classroom

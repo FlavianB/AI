@@ -52,6 +52,19 @@ def main():
                     output_file.write_and_log(prof.get_name())
         else:
             print("No schedule possible with ARC consistency.")
+    elif ALGORITHM == 'arc-preproc':
+        algo = ARCAlgorithm(courses, classrooms, staff_members, events, constraints)
+        if algo.solve_preproc_only():
+            for solution in algo.solution:
+                (course, (classroom, ids, interval)) = solution
+                event = next(x for x in events if course.get_event_id() == x.get_id())
+                profs = list(filter(lambda x: any(x.get_id() == s_id for s_id in ids), staff_members))
+                output_file.write_and_log(event.get_name(), event.get_semester(), course.get_type(), course.get_group())
+                output_file.write_and_log(classroom.get_id(), interval)
+                for prof in profs:
+                    output_file.write_and_log(prof.get_name())
+        else:
+            print("No schedule possible with ARC consistency.")
     else:
         print("Algorithm not implemented")
 

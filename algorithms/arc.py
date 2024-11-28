@@ -214,6 +214,29 @@ class ARCAlgorithm:
             if not self.are_compatible(value, other_value, course, other_course):
                 return False
         return True
+    
+    def backtrack_ac3_preproc(self, assignment: dict[Course, AssignmentType], domains: dict[Course, list[AssignmentType]]) -> bool:
+        """
+        Backtracking function that uses the domains obtained after AC-3 preprocessing.
+        Does not apply AC-3 during the backtracking process.
+        """
+        if len(assignment) == len(self.courses):
+            self.solution = [(course, assignment[course]) for course in self.courses]
+            return True
+
+        course = self.select_unassigned_variable(assignment, domains)
+        for value in domains[course]:
+            if self.is_consistent(course, value, assignment):
+                # Make a copy of the assignment
+                local_assignment = assignment.copy()
+                local_assignment[course] = value
+
+                result = self.backtrack_ac3_preproc(local_assignment, domains)
+                if result:
+                    return True
+                # Backtrack if not successful
+        return False
+        
 
     def backtrack(self, assignment: dict[Course, AssignmentType], domains: dict[Course, list[AssignmentType]]) -> bool:
         if len(assignment) == len(self.courses):
@@ -238,6 +261,35 @@ class ARCAlgorithm:
                         return True
                 # If AC-3 failed or recursive call failed, backtrack
         return False
+    
+    def solve_preproc_only(self) -> bool:
+        """
+        Executes the scheduling process using only AC-3 as a preprocessing step.
+        """
+        self.apply_global_hard_constraints()
+        domains = self.initialize_domains()
+        # Apply AC-3 as a preprocessing step
+        initial_ac3_result = self.ac3(domains)
+        if not initial_ac3_result:
+            print("No solution exists after applying AC-3 as preprocessing.")
+            return False
+
+        # Print the domains after AC-3 preprocessing
+        print("\nDomains after AC-3 preprocessing:")
+        for course in self.courses:
+            print(f"Course {course.get_event_id()} domain:")
+            for assignment in domains[course]:
+                classroom, staff_member_ids, time_interval = assignment
+                print(f"  Classroom: {classroom.get_id()}, Staff: {staff_member_ids}, Time: {time_interval}")
+
+        assignment = {}
+
+        if self.backtrack_ac3_preproc(assignment, domains):
+            print("Solution found.")
+            return True
+        else:
+            print("No solution exists.")
+            return False
 
     def solve(self) -> bool:
         """

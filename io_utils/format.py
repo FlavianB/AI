@@ -18,10 +18,13 @@ def parse_file(file_path):
         i = 0
         while i < len(lines):
             course_info = lines[i].strip().split()
-            course = course_info[0]  
-            year = course_info[1]    
-            course_type = course_info[2].replace("CourseType.", "")  
-            group = course_info[3]  
+            try:
+                course = " ".join(course_info[:-3]) 
+                year = course_info[-3]    
+                course_type = course_info[-2].replace("CourseType.", "")  
+                group = course_info[-1]  
+            except Exception:
+                print(lines[i])
             
             room_time = lines[i + 1].strip().split()
             room = room_time[0]  

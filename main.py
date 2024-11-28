@@ -5,7 +5,7 @@ from icecream import ic
 from algorithms.arc import ARCAlgorithm
 from algorithms.bkt import BKTAlgorithm
 from cli import cli
-from io_utils.reading_bkt import read_all_data, _read_constraints
+from io_utils.reading_bkt import read_all_data
 from io_utils.generating_data import generate_courses
 from io_utils.output_file import OutputFile
 
@@ -16,7 +16,7 @@ def main():
     data = read_all_data(INPUT)
     if data is None:
         exit(-1)
-    
+
     classrooms, staff_members, events, constraints = data
     courses = generate_courses(events, SEMESTER)
 
@@ -33,8 +33,10 @@ def main():
                 profs = list(filter(lambda x: any(x.get_id() == s_id for s_id in ids), staff_members))
                 output_file.write_and_log(event.get_name(), event.get_semester(), course.get_type(), course.get_group())
                 output_file.write_and_log(classroom.get_id(), interval)
+                profss = ""
                 for prof in profs:
-                    output_file.write_and_log(prof.get_name())
+                    profss += prof.get_name() + ","
+                output_file.write_and_log(profss)
     elif (ALGORITHM == "counting-bkt"):
         algo = BKTAlgorithm(courses, classrooms, staff_members, events)
 
@@ -48,8 +50,10 @@ def main():
                 profs = list(filter(lambda x: any(x.get_id() == s_id for s_id in ids), staff_members))
                 output_file.write_and_log(event.get_name(), event.get_semester(), course.get_type(), course.get_group())
                 output_file.write_and_log(classroom.get_id(), interval)
+                profss = ""
                 for prof in profs:
-                    output_file.write_and_log(prof.get_name())
+                    profss += prof.get_name() + ","
+                output_file.write_and_log(profss)
         else:
             print("No schedule possible with ARC consistency.")
     else:

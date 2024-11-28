@@ -13,6 +13,10 @@
       "type_": "Lecture"
     },
     {
+      "id_": "C113",
+      "type_": "Lecture"
+    },
+    {
       "id_": "C308",
       "type_": "Lecture"
     },
@@ -54,6 +58,18 @@
     },
     {
       "id_": "C901",
+      "type_": "Laboratory"
+    },
+    {
+      "id_": "C903",
+      "type_": "Laboratory"
+    },
+    {
+      "id_": "C905",
+      "type_": "Laboratory"
+    },
+    {
+      "id_": "C909",
       "type_": "Laboratory"
     }
   ]

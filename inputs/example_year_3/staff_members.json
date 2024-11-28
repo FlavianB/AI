@@ -1,0 +1,264 @@
+{
+  "staff_members": [
+    {
+      "id_" : "3",
+      "position": "Conf",
+      "name": "Zalinescu Adrian"
+    },
+    {
+      "id_" : "8",
+      "position": "Assistant",
+      "name": "Balan Gheorghe"
+    },
+    {
+      "id_" : "13",
+      "position": "Conf",
+      "name": "Raschip Madalina"
+    },
+    {
+      "id_" : "19",
+      "position": "Conf",
+      "name": "Ciobaca Stefan"
+    },
+    {
+      "id_" : "20",
+      "position": "Assistant",
+      "name": "Gratie Diana Elena"
+    },
+    {
+      "id_" : "31",
+      "position": "Assistant",
+      "name": "Scutelnicu Andrei"
+    },
+    {
+      "id_" : "32",
+      "position": "Assistant",
+      "name": "Matei Madalina"
+    },
+    {
+      "id_" : "33",
+      "position": "Lecturer",
+      "name": "Alboaie Lenuta"
+    },
+    {
+      "id_" : "34",
+      "position": "Conf",
+      "name": "Panu Andrei"
+    },
+    {
+      "id_" : "35",
+      "position": "Assistant",
+      "name": "Hrib Ecaterina"
+    },
+    {
+      "id_" : "36",
+      "position": "Assistant",
+      "name": "Prelipcean Bogdan"
+    },
+    {
+      "id_" : "37",
+      "position": "Lecturer",
+      "name": "Captarencu Oana"
+    },
+    {
+      "id_" : "38",
+      "position": "Lecturer",
+      "name": "Moruz Alex"
+    },
+    {
+      "id_" : "39",
+      "position": "Conf",
+      "name": "Gavrilut Dragos"
+    },
+    {
+      "id_" : "40",
+      "position": "Assistant",
+      "name": "Antoneac Andrada"
+    },
+    {
+      "id_" : "41",
+      "position": "Assistant",
+      "name": "Mutu Gheorghita"
+    },
+    {
+      "id_" : "42",
+      "position": "Assistant",
+      "name": "Damian Andrei"
+    },
+    {
+      "id_" : "43",
+      "position": "Lecturer",
+      "name": "Tiplea Ferucio Laurentiu"
+    },
+    {
+      "id_" : "44",
+      "position": "Assistant",
+      "name": "Lazarescu Simona"
+    },
+    {
+      "id_" : "45",
+      "position": "Lecturer",
+      "name": "Olariu Florentin Emanuel"
+    },
+    {
+      "id_" : "46",
+      "position": "Lecturer",
+      "name": "Frasinaru Cristian"
+    },
+    {
+      "id_" : "47",
+      "position": "Lecturer",
+      "name": "Diac Paul"
+    },
+    {
+      "id_" : "48",
+      "position": "Lecturer",
+      "name": "Varlan Cosmin"
+    },
+    {
+      "id_" : "49",
+      "position": "Lecturer",
+      "name": "Braeban Mihaela"
+    },
+    {
+      "id_" : "50",
+      "position": "Lecturer",
+      "name": "Varlan Simona"
+    },
+    {
+      "id_" : "51",
+      "position": "Assistant",
+      "name": "Stoica George"
+    },
+    {
+      "id_" : "52",
+      "position": "Assistant",
+      "name": "Cornei Laura"
+    },
+    {
+      "id_" : "53",
+      "position": "Conf",
+      "name": "Vitcu Anca"
+    },
+    {
+      "id_" : "54",
+      "position": "Conf",
+      "name": "Olariu Florin"
+    },
+    {
+      "id_" : "55",
+      "position": "Lecturer",
+      "name": "Benchea Razvan"
+    },
+    {
+      "id_" : "56",
+      "position": "Assistant",
+      "name": "Simionescu Cristian"
+    },
+    {
+      "id_" : "57",
+      "position": "Assistant",
+      "name": "Marculet Dan"
+    },
+    {
+      "id_" : "58",
+      "position": "Assistant",
+      "name": "Craciun Vlad"
+    },
+    {
+      "id_" : "59",
+      "position": "Lecturer",
+      "name": "Iftene Adrian"
+    },
+    {
+      "id_" : "60",
+      "position": "Assistant",
+      "name": "Constantinescu Gabriel"
+    },
+    {
+      "id_" : "61",
+      "position": "Assistant",
+      "name": "Silion Dragos"
+    },
+    {
+      "id_" : "62",
+      "position": "Lecturer",
+      "name": "Vidrascu Cristian"
+    },
+    {
+      "id_" : "63",
+      "position": "Conf",
+      "name": "Onica Emanuel"
+    },
+    {
+      "id_" : "64",
+      "position": "Assistant",
+      "name": "Lupascu Marilena"
+    },
+    {
+      "id_" : "65",
+      "position": "Assistant",
+      "name": "Melinte Daria"
+    },
+    {
+      "id_" : "66",
+      "position": "Assistant",
+      "name": "Lupascu Marilena"
+    },
+    {
+      "id_" : "67",
+      "position": "Lecturer",
+      "name": "Pistol Ionut Cristian"
+    },
+    {
+      "id_" : "68",
+      "position": "Conf",
+      "name": "Trandabat Diana"
+    },
+    {
+      "id_" : "69",
+      "position": "Assistant",
+      "name": "Coteanu Maria"
+    },
+    {
+      "id_" : "70",
+      "position": "Assistant",
+      "name": "Ticlos Olimpia"
+    },
+    {
+      "id_" : "71",
+      "position": "Lecturer",
+      "name": "Nica Anca-Maria"
+    },
+    {
+      "id_" : "72",
+      "position": "Assistant",
+      "name": "Peterca Adrian"
+    },
+    {
+      "id_" : "73",
+      "position": "Conf",
+      "name": "Liviu Ciortuz"
+    },
+    {
+      "id_" : "74",
+      "position": "Assistant",
+      "name": "Ciobanu Sebastian"
+    },
+    {
+      "id_" : "75",
+      "position": "Conf",
+      "name": "Ignat Anca"
+    },
+    {
+      "id_" : "76",
+      "position": "Assistant",
+      "name": "Albert Ramona"
+    },
+    {
+      "id_" : "77",
+      "position": "Assistant",
+      "name": "Dimitriu Corina"
+    }
+  ]
+}

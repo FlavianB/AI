@@ -93,12 +93,11 @@ def _read_events(data_set_path: str) -> Optional[list[Event]]:
 
     return None if not is_valid else [event.unwrap() for event in events]
 
-def read_all_data(data_set_path: str) -> Optional[tuple[list[Classroom], list[StaffMember], list[Event], list[Constraint]]]:
+def read_all_data(data_set_path: str) -> Optional[tuple[list[Classroom], list[StaffMember], list[Event], list[Constraint] | None]]:
     classrooms = _read_classrooms(data_set_path)
     staff_members = _read_staff_members(data_set_path)
     events = _read_events(data_set_path)
     constraints = _read_constraints(data_set_path)
-
     if staff_members is None or events is None:
         return None
     
@@ -110,5 +109,5 @@ def read_all_data(data_set_path: str) -> Optional[tuple[list[Classroom], list[St
         if unknown_ids:
             print(f"Ids for event {event.get_name()} are not corelated with any staff members with id {unknown_ids}.")
             is_valid = False
-        
-    return None if not classrooms or not staff_members or not events or not constraints or not is_valid else (classrooms, staff_members, events, constraints)
+
+    return None if not classrooms or not staff_members or not events or not is_valid else (classrooms, staff_members, events, constraints)

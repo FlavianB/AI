@@ -20,7 +20,7 @@ def parse() -> tuple[str, str, int]:
     # Define some arguments
     parser.add_argument("algorithm", choices=["bkt", "counting-bkt", "arc", "arc-bkt"], help="Algorithm to use.")
     parser.add_argument("semester", choices=["1", "2"], help="For which semester should we generate the timetable")
-    parser.add_argument("input", choices=["example_bkt", "example_hard", "example_validate_error", "example_full", "example_cannot_generate", "example_not_enough_staff", "example_too_many_groups", "example_small_sample"], help="Input file to consider")
+    parser.add_argument("input", choices=["example_bkt", "example_hard", "example_year_3", "example_validate_error", "example_full", "example_cannot_generate", "example_not_enough_staff", "example_too_many_groups", "example_small_sample"], help="Input file to consider")
 
     # Enable autocompletion with argcomplete
     argcomplete.autocomplete(parser)

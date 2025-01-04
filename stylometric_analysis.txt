@@ -1,0 +1,27 @@
+Word count: 22
+Character count: 107
+Average word length: 3.77
+Average sentence length (in words): 11.00
+Vocabulary richness (type-token ratio): 0.91
+
+Word frequencies:
+the: 3
+The: 1
+quick: 1
+brown: 1
+fox: 1
+jumps: 1
+over: 1
+lazy: 1
+dog: 1
+It: 1
+was: 1
+a: 1
+sunny: 1
+day: 1
+and: 1
+children: 1
+were: 1
+playing: 1
+in: 1
+park: 1

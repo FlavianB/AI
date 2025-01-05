@@ -1,23 +1,25 @@
 Word count: 18
-Character count: 87
-Average word length: 3.83
-Average sentence length (in words): 18.00
-Vocabulary richness (type-token ratio): 0.89
+Character count: 107
+Average word length: 4.89
+Average sentence length (in words): 9.00
+Vocabulary richness (type-token ratio): 1.00
 
 Word frequencies:
-I: 2
-was: 2
-at: 1
-home: 1
-playing: 1
-cards: 1
-with: 1
-my: 1
-friends: 1
-and: 1
-family: 1
-when: 1
-attacked: 1
-by: 1
-a: 1
-robber: 1
+Ion: 1
+era: 1
+suparat: 1
+deoarece: 1
+pamantul: 1
+si: 1
+toata: 1
+avutia: 1
+sa: 1
+au: 1
+disparut: 1
+peste: 1
+noapte: 1
+Doar: 1
+iubirea: 1
+il: 1
+poate: 1
+salva: 1

@@ -73,14 +73,6 @@ def stylometric_analysis(text):
         'vocab_richness': vocab_richness
     }
 
-import random
-from nltk.corpus import wordnet as wn
-from nltk.tokenize import word_tokenize, TreebankWordDetokenizer
-
-def is_word(token):
-    # Utility function to check if a token is a word
-    return token.isalpha()
-
 def get_related_words(word):
     """
     Fetch related words for the given word, including synonyms, hypernyms, and negated antonyms.
@@ -93,7 +85,8 @@ def get_related_words(word):
     if not synsets:
         return synonyms, hypernyms, negated_antonyms  # Return empty sets if no synsets found
 
-    for syn in synsets:
+    # Limit to only the first synset to avoid word sense disambiguation
+    for syn in synsets[0:2]:
         for lemma in syn.lemmas():
             synonyms.add(lemma.name())
             if lemma.antonyms():
@@ -102,12 +95,18 @@ def get_related_words(word):
             for lemma in hyper.lemmas():
                 hypernyms.add(lemma.name())
 
+    print(f"Synonyms for '{word}': {synonyms}")
+    print(f"Hypernyms for '{word}': {hypernyms}")
+    print(f"Negated antonyms for '{word}': {negated_antonyms}")
     return synonyms, hypernyms, negated_antonyms
 
 def get_best_replacement(word, context):
     """
     Find the best replacement word based on semantic similarity and context.
     """
+    if len(word) <= 3:
+        return word  # Skip short words
+
     synonyms, hypernyms, negated_antonyms = get_related_words(word)
     candidates = list(synonyms.union(hypernyms).union(negated_antonyms))
 
@@ -125,11 +124,11 @@ def get_best_replacement(word, context):
     # Extract context words' synsets
     context_synsets = []
     for ctx_word in context:
-        ctx_synsets = wn.synsets(ctx_word)
+        ctx_synsets = wn.synsets(ctx_word)[0:1]
         context_synsets.extend(ctx_synsets)
 
     for candidate in candidates:
-        candidate_synsets = wn.synsets(candidate)
+        candidate_synsets = wn.synsets(candidate)[0:1]
         if not candidate_synsets:
             continue  # Skip candidates with no synsets
 
@@ -147,7 +146,7 @@ def get_best_replacement(word, context):
 
     return f"<{best_candidate}>" if best_candidate != word else word
 
-def replace_words(text, replacement_rate=0.5):
+def replace_words(text, replacement_rate=0.8):
     """
     Replace words in the text with their best replacements based on semantic similarity.
     """
@@ -174,12 +173,12 @@ def replace_words(text, replacement_rate=0.5):
 
     return TreebankWordDetokenizer().detokenize(new_tokens)
 
-def extract_keywords(text):
-    rake = Rake()
+def extract_keywords(text, lang):
+    rake = Rake(language=lang)
     rake.extract_keywords_from_text(text)
     return rake.get_ranked_phrases()
 
-def generate_sentences(keywords):
+def generate_sentences(keywords, lang):
     sentences = []
     for keyword in keywords:
         sentence = f"The keyword '{keyword}' is significant in the given context."
@@ -204,6 +203,10 @@ def save_altered_text_to_file(altered_text, filename='altered_text.txt'):
 def main():
     text = read_text()
     language = detect_language(text)
+    if language == "en":
+        language = "english"
+    elif language == "ro":
+        language = "romanian"
     print(f"Detected language: {language}")
 
     analysis = stylometric_analysis(text)
@@ -220,10 +223,10 @@ def main():
     save_altered_text_to_file(altered_text)
     print("Altered text saved to 'altered_text.txt'.")
 
-    # keywords = extract_keywords(text)
-    # sentences = generate_sentences(keywords)
-    # for sentence in sentences:
-    #     print(sentence)
+    keywords = extract_keywords(text, language)
+    sentences = generate_sentences(keywords, language)
+    for sentence in sentences:
+        print(sentence)
 
 if __name__ == "__main__":
     main()

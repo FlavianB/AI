@@ -19,7 +19,6 @@ nltk.download('punkt_tab')
 nltk.download('wordnet')
 nltk.download('omw-1.4')
 
-import openai
 from openai import OpenAI
 
 # Ensure consistent language detection results
@@ -207,7 +206,7 @@ def get_best_replacement_romanian(word):
     return f"<{replacement}>" if replacement != word else word
 
 
-def replace_words(text, language="en", replacement_rate=0.8):
+def replace_words(text, language="en", replacement_rate=1):
     """
     Replace words in the text with:
       - WordNet-based English synonyms (if language = 'en')
@@ -375,6 +374,9 @@ def main():
 
     # Extract keywords and generate sentences
     keywords = extract_keywords(text, rake_language)
+    print("Extracted Keywords:")
+    for idx, kw in enumerate(keywords, start=1):
+        print(f"{idx}. {kw}")
     sentences = generate_sentences(keywords, text, lang=rake_language)
     print("Generated Sentences:")
     for idx, sentence in enumerate(sentences, start=1):

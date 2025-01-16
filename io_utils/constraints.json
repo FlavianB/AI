@@ -1,0 +1,14 @@
+{
+  "constraints": [
+    {
+      "type": "unavailable_staff_time",
+      "name": "Dr Johnson",
+      "unavailability": {
+        "Monday": [
+          "08:00-10:00"
+        ]
+      },
+      "weight": "hard"
+    }
+  ]
+}

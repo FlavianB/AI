@@ -1,0 +1,14 @@
+Word count: 7
+Character count: 31
+Average word length: 3.43
+Average sentence length (in words): 7.00
+Vocabulary richness (type-token ratio): 1.00
+
+Word frequencies:
+I: 1
+will: 1
+book: 1
+my: 1
+flight: 1
+to: 1
+Paris: 1

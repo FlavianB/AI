@@ -1,0 +1,46 @@
+{
+  "constraints": [
+    {
+      "type": "unavailable_staff_time",
+      "name": "Dl Popescu",
+      "unavailability": {
+        "Monday": [
+          "08:00-10:00"
+        ]
+      },
+      "weight": "hard"
+    },
+    {
+      "type": "unavailable_staff_time",
+      "name": "Mr. Popescu",
+      "unavailability": {
+        "Monday": [
+          "16:00-20:00"
+        ],
+        "Tuesday": [
+          "16:00-20:00"
+        ],
+        "Wednesday": [
+          "16:00-20:00"
+        ],
+        "Thursday": [
+          "16:00-20:00"
+        ],
+        "Friday": [
+          "16:00-20:00"
+        ]
+      },
+      "weight": "hard"
+    },
+    {
+      "type": "preferred_event",
+      "instructor": "dl popescu",
+      "preferred_time": {
+        "Tuesday": [
+          "00:00-24:00"
+        ]
+      },
+      "weight": "hard"
+    }
+  ]
+}

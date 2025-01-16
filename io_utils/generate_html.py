@@ -65,4 +65,4 @@ def generate_html_page_by_group(data_dict, output_file="outputs/timetable_by_gro
 file_path = 'outputs/to_format.txt'
 data = parse_file(file_path)
 grouped_data = group_by_group(data)
-generate_html_page_by_group(grouped_data)
+generate_html_page_by_group(grouped_data, "outputs/formatted_timetable.html")

@@ -1,288 +1,288 @@
 Animatii 3D: algoritmi si tehnici fundamentale 5 CourseType.LECTURE ABE
-C2 TimeInterval.M1
-Vitcu Anca
+C112 TimeInterval.M1
+Vitcu Anca,
 Animatii 3D: algoritmi si tehnici fundamentale 5 CourseType.LABORATORY A
 210 TimeInterval.M2
-Vitcu Anca
+Vitcu Anca,
 Animatii 3D: algoritmi si tehnici fundamentale 5 CourseType.LABORATORY B
 210 TimeInterval.M3
-Vitcu Anca
+Vitcu Anca,
 Animatii 3D: algoritmi si tehnici fundamentale 5 CourseType.LABORATORY E
 210 TimeInterval.M4
-Vitcu Anca
+Vitcu Anca,
 Introducere in .NET 5 CourseType.LECTURE ABE
-C2 TimeInterval.M2
-Olariu Florin
+C112 TimeInterval.M5
+Olariu Florin,
 Introducere in .NET 5 CourseType.LABORATORY A
-210 TimeInterval.T3
-Olariu Florin
+210 TimeInterval.M6
+Olariu Florin,
 Introducere in .NET 5 CourseType.LABORATORY B
 210 TimeInterval.T1
-Olariu Florin
+Olariu Florin,
 Introducere in .NET 5 CourseType.LABORATORY E
 210 TimeInterval.T2
-Olariu Florin
+Olariu Florin,
 Retele neuronale 5 CourseType.LECTURE ABE
-C2 TimeInterval.M3
-Benchea Razvan
+C112 TimeInterval.T3
+Benchea Razvan,
 Retele neuronale 5 CourseType.LABORATORY A
-210 TimeInterval.TH2
-Benchea Razvan
-Retele neuronale 5 CourseType.LABORATORY B
-210 TimeInterval.TH6
-Benchea Razvan
-Retele neuronale 5 CourseType.LABORATORY E
-210 TimeInterval.F2
-Benchea Razvan
-Dezvoltarea sistemelor fizice utlizand microprocesoare 5 CourseType.LECTURE ABE
-C2 TimeInterval.M4
-Varlan Cosmin
-Dezvoltarea sistemelor fizice utlizand microprocesoare 5 CourseType.LABORATORY A
-210 TimeInterval.T5
-Varlan Cosmin
-Dezvoltarea sistemelor fizice utlizand microprocesoare 5 CourseType.LABORATORY B
-210 TimeInterval.W6
-Varlan Cosmin
-Dezvoltarea sistemelor fizice utlizand microprocesoare 5 CourseType.LABORATORY E
-210 TimeInterval.W1
-Varlan Cosmin
-Programare si modelare probabilista 5 CourseType.LECTURE ABE
-C2 TimeInterval.M5
-Zalinescu Adrian
-Programare si modelare probabilista 5 CourseType.LABORATORY A
-210 TimeInterval.T6
-Zalinescu Adrian
-Programare si modelare probabilista 5 CourseType.LABORATORY B
-210 TimeInterval.TH1
-Zalinescu Adrian
-Programare si modelare probabilista 5 CourseType.LABORATORY E
-210 TimeInterval.W4
-Zalinescu Adrian
-Introducere in realitate mixta 5 CourseType.LECTURE ABE
-C2 TimeInterval.M6
-Iftene Adrian
-Introducere in realitate mixta 5 CourseType.LABORATORY A
-210 TimeInterval.F1
-Iftene Adrian
-Introducere in realitate mixta 5 CourseType.LABORATORY B
-210 TimeInterval.TH5
-Iftene Adrian
-Introducere in realitate mixta 5 CourseType.LABORATORY E
-210 TimeInterval.F3
-Iftene Adrian
-Capitole speciale de sisteme de operare 5 CourseType.LECTURE ABE
-C2 TimeInterval.T1
-Vidrascu Cristian
-Capitole speciale de sisteme de operare 5 CourseType.LABORATORY A
-210 TimeInterval.W2
-Vidrascu Cristian
-Capitole speciale de sisteme de operare 5 CourseType.LABORATORY B
-210 TimeInterval.TH4
-Vidrascu Cristian
-Capitole speciale de sisteme de operare 5 CourseType.LABORATORY E
 210 TimeInterval.T4
-Vidrascu Cristian
-Tehnici de programare 5 CourseType.LECTURE ABE
-C2 TimeInterval.T2
-Onica Emanuel
-Tehnici de programare 5 CourseType.LABORATORY A
+Benchea Razvan,
+Retele neuronale 5 CourseType.LABORATORY B
+210 TimeInterval.T5
+Benchea Razvan,
+Retele neuronale 5 CourseType.LABORATORY E
+210 TimeInterval.T6
+Benchea Razvan,
+Dezvoltarea sistemelor fizice utlizand microprocesoare 5 CourseType.LECTURE ABE
+C112 TimeInterval.W1
+Varlan Cosmin,
+Dezvoltarea sistemelor fizice utlizand microprocesoare 5 CourseType.LABORATORY A
+210 TimeInterval.W2
+Varlan Cosmin,
+Dezvoltarea sistemelor fizice utlizand microprocesoare 5 CourseType.LABORATORY B
 210 TimeInterval.W3
-Onica Emanuel
-Tehnici de programare 5 CourseType.LABORATORY B
-210 TimeInterval.TH3
-Onica Emanuel
-Tehnici de programare 5 CourseType.LABORATORY E
-210 TimeInterval.W5
-Onica Emanuel
-Dezvoltare de progamare bazata pe verificare 5 CourseType.LECTURE ABE
-C2 TimeInterval.T3
-Ciobaca Stefan
-Dezvoltare de progamare bazata pe verificare 5 CourseType.LABORATORY A
+Varlan Cosmin,
+Dezvoltarea sistemelor fizice utlizand microprocesoare 5 CourseType.LABORATORY E
+210 TimeInterval.W4
+Varlan Cosmin,
+Programare si modelare probabilista 5 CourseType.LECTURE ABE
+C112 TimeInterval.M2
+Zalinescu Adrian,
+Programare si modelare probabilista 5 CourseType.LABORATORY A
 210 TimeInterval.M1
-Ciobaca Stefan
-Dezvoltare de progamare bazata pe verificare 5 CourseType.LABORATORY B
+Zalinescu Adrian,
+Programare si modelare probabilista 5 CourseType.LABORATORY B
 210 TimeInterval.M5
-Ciobaca Stefan
+Zalinescu Adrian,
+Programare si modelare probabilista 5 CourseType.LABORATORY E
+210 TimeInterval.T3
+Zalinescu Adrian,
+Introducere in realitate mixta 5 CourseType.LECTURE ABE
+C112 TimeInterval.M3
+Iftene Adrian,
+Introducere in realitate mixta 5 CourseType.LABORATORY A
+210 TimeInterval.W1
+Iftene Adrian,
+Introducere in realitate mixta 5 CourseType.LABORATORY B
+210 TimeInterval.W5
+Iftene Adrian,
+Introducere in realitate mixta 5 CourseType.LABORATORY E
+210 TimeInterval.W6
+Iftene Adrian,
+Capitole speciale de sisteme de operare 5 CourseType.LECTURE ABE
+C112 TimeInterval.M4
+Vidrascu Cristian,
+Capitole speciale de sisteme de operare 5 CourseType.LABORATORY A
+210 TimeInterval.TH1
+Vidrascu Cristian,
+Capitole speciale de sisteme de operare 5 CourseType.LABORATORY B
+210 TimeInterval.TH2
+Vidrascu Cristian,
+Capitole speciale de sisteme de operare 5 CourseType.LABORATORY E
+210 TimeInterval.TH3
+Vidrascu Cristian,
+Tehnici de programare 5 CourseType.LECTURE ABE
+C112 TimeInterval.M6
+Onica Emanuel,
+Tehnici de programare 5 CourseType.LABORATORY A
+210 TimeInterval.TH4
+Onica Emanuel,
+Tehnici de programare 5 CourseType.LABORATORY B
+210 TimeInterval.TH5
+Onica Emanuel,
+Tehnici de programare 5 CourseType.LABORATORY E
+210 TimeInterval.TH6
+Onica Emanuel,
+Dezvoltare de progamare bazata pe verificare 5 CourseType.LECTURE ABE
+C112 TimeInterval.T1
+Ciobaca Stefan,
+Dezvoltare de progamare bazata pe verificare 5 CourseType.LABORATORY A
+210 TimeInterval.F1
+Ciobaca Stefan,
+Dezvoltare de progamare bazata pe verificare 5 CourseType.LABORATORY B
+210 TimeInterval.F2
+Ciobaca Stefan,
 Dezvoltare de progamare bazata pe verificare 5 CourseType.LABORATORY E
-210 TimeInterval.M6
-Ciobaca Stefan
+210 TimeInterval.F3
+Ciobaca Stefan,
 Programare in Python 5 CourseType.LECTURE A
-C2 TimeInterval.T4
-Gavrilut Dragos
+C112 TimeInterval.T2
+Gavrilut Dragos,
 Programare in Python 5 CourseType.LECTURE B
-C2 TimeInterval.T5
-Gavrilut Dragos
+C112 TimeInterval.T4
+Gavrilut Dragos,
 Programare in Python 5 CourseType.LECTURE E
-C2 TimeInterval.T6
-Gavrilut Dragos
+C112 TimeInterval.T5
+Gavrilut Dragos,
 Programare in Python 5 CourseType.LABORATORY A1
-205 TimeInterval.W5
-Gavrilut Dragos
-Programare in Python 5 CourseType.LABORATORY A2
-205 TimeInterval.TH4
-Gavrilut Dragos
-Programare in Python 5 CourseType.LABORATORY A3
-205 TimeInterval.F2
-Gavrilut Dragos
-Programare in Python 5 CourseType.LABORATORY A4
-205 TimeInterval.F5
-Gavrilut Dragos
-Programare in Python 5 CourseType.LABORATORY A5
-401 TimeInterval.TH3
-Gavrilut Dragos
-Programare in Python 5 CourseType.LABORATORY B1
-205 TimeInterval.T4
-Lazarescu Simona
-Programare in Python 5 CourseType.LABORATORY B2
-205 TimeInterval.F1
-Gavrilut Dragos
-Programare in Python 5 CourseType.LABORATORY B3
-401 TimeInterval.T2
-Gavrilut Dragos
-Programare in Python 5 CourseType.LABORATORY B4
-401 TimeInterval.T4
-Lupascu Marilena
-Programare in Python 5 CourseType.LABORATORY E1
-205 TimeInterval.TH1
-Gavrilut Dragos
-Programare in Python 5 CourseType.LABORATORY E2
-401 TimeInterval.M3
-Gavrilut Dragos
-Programare in Python 5 CourseType.LABORATORY E3
-401 TimeInterval.T5
-Lazarescu Simona
-Inteligenta Artificiala 5 CourseType.LECTURE A
-C2 TimeInterval.W1
-Raschip Madalina, Pistol Ionut Cristian
-Inteligenta Artificiala 5 CourseType.LECTURE B
-C2 TimeInterval.W2
-Raschip Madalina, Pistol Ionut Cristian
-Inteligenta Artificiala 5 CourseType.LECTURE E
-C2 TimeInterval.W3
-Raschip Madalina, Pistol Ionut Cristian
-Inteligenta Artificiala 5 CourseType.LABORATORY A1
 210 TimeInterval.F4
-Raschip Madalina
-Inteligenta Artificiala 5 CourseType.LABORATORY A2
+Gavrilut Dragos,
+Programare in Python 5 CourseType.LABORATORY A2
 210 TimeInterval.F5
-Raschip Madalina
-Inteligenta Artificiala 5 CourseType.LABORATORY A3
+Gavrilut Dragos,
+Programare in Python 5 CourseType.LABORATORY A3
 210 TimeInterval.F6
-Raschip Madalina
-Inteligenta Artificiala 5 CourseType.LABORATORY A4
-205 TimeInterval.M3
-Raschip Madalina
-Inteligenta Artificiala 5 CourseType.LABORATORY A5
-205 TimeInterval.M4
-Raschip Madalina
-Inteligenta Artificiala 5 CourseType.LABORATORY B1
-205 TimeInterval.M1
-Raschip Madalina
-Inteligenta Artificiala 5 CourseType.LABORATORY B2
-205 TimeInterval.M2
-Raschip Madalina
-Inteligenta Artificiala 5 CourseType.LABORATORY B3
-205 TimeInterval.M6
-Raschip Madalina
-Inteligenta Artificiala 5 CourseType.LABORATORY B4
-205 TimeInterval.T2
-Raschip Madalina
-Inteligenta Artificiala 5 CourseType.LABORATORY E1
-205 TimeInterval.M5
-Raschip Madalina
-Inteligenta Artificiala 5 CourseType.LABORATORY E2
-205 TimeInterval.T1
-Raschip Madalina
-Inteligenta Artificiala 5 CourseType.LABORATORY E3
-205 TimeInterval.T3
-Raschip Madalina
-Securitatea Informatiei 5 CourseType.LECTURE A
-C2 TimeInterval.W4
-Tiplea Ferucio Laurentiu
-Securitatea Informatiei 5 CourseType.LECTURE B
-C2 TimeInterval.W5
-Tiplea Ferucio Laurentiu
-Securitatea Informatiei 5 CourseType.LECTURE E
-C2 TimeInterval.W6
-Tiplea Ferucio Laurentiu
-Securitatea Informatiei 5 CourseType.LABORATORY A1
-205 TimeInterval.TH3
-Tiplea Ferucio Laurentiu
-Securitatea Informatiei 5 CourseType.LABORATORY A2
-205 TimeInterval.TH6
-Tiplea Ferucio Laurentiu
-Securitatea Informatiei 5 CourseType.LABORATORY A3
-205 TimeInterval.F4
-Tiplea Ferucio Laurentiu
-Securitatea Informatiei 5 CourseType.LABORATORY A4
-401 TimeInterval.M4
-Tiplea Ferucio Laurentiu
-Securitatea Informatiei 5 CourseType.LABORATORY A5
-401 TimeInterval.W5
-Prelipcean Bogdan
-Securitatea Informatiei 5 CourseType.LABORATORY B1
-205 TimeInterval.W1
-Tiplea Ferucio Laurentiu
-Securitatea Informatiei 5 CourseType.LABORATORY B2
-205 TimeInterval.W3
-Tiplea Ferucio Laurentiu
-Securitatea Informatiei 5 CourseType.LABORATORY B3
-401 TimeInterval.M1
-Tiplea Ferucio Laurentiu
-Securitatea Informatiei 5 CourseType.LABORATORY B4
-401 TimeInterval.M6
-Tiplea Ferucio Laurentiu
-Securitatea Informatiei 5 CourseType.LABORATORY E1
+Gavrilut Dragos,
+Programare in Python 5 CourseType.LABORATORY A4
 205 TimeInterval.T5
-Tiplea Ferucio Laurentiu
-Securitatea Informatiei 5 CourseType.LABORATORY E2
-205 TimeInterval.TH2
-Tiplea Ferucio Laurentiu
-Securitatea Informatiei 5 CourseType.LABORATORY E3
-401 TimeInterval.T1
-Tiplea Ferucio Laurentiu
-Machine Learning 5 CourseType.LECTURE A
-C2 TimeInterval.TH1
-Liviu Ciortuz
-Machine Learning 5 CourseType.LECTURE B
-C2 TimeInterval.TH2
-Liviu Ciortuz
-Machine Learning 5 CourseType.LECTURE E
-C2 TimeInterval.TH3
-Liviu Ciortuz
-Machine Learning 5 CourseType.LABORATORY A1
-205 TimeInterval.W6
-Liviu Ciortuz
-Machine Learning 5 CourseType.LABORATORY A2
-205 TimeInterval.TH5
-Liviu Ciortuz
-Machine Learning 5 CourseType.LABORATORY A3
-205 TimeInterval.F3
-Liviu Ciortuz
-Machine Learning 5 CourseType.LABORATORY A4
-205 TimeInterval.F6
-Liviu Ciortuz
-Machine Learning 5 CourseType.LABORATORY A5
-401 TimeInterval.W6
-Simionescu Cristian
-Machine Learning 5 CourseType.LABORATORY B1
+Lazarescu Simona,
+Programare in Python 5 CourseType.LABORATORY A5
 205 TimeInterval.T6
-Liviu Ciortuz
-Machine Learning 5 CourseType.LABORATORY B2
-205 TimeInterval.W4
-Liviu Ciortuz
-Machine Learning 5 CourseType.LABORATORY B3
-401 TimeInterval.M2
-Liviu Ciortuz
-Machine Learning 5 CourseType.LABORATORY B4
-401 TimeInterval.T3
-Liviu Ciortuz
-Machine Learning 5 CourseType.LABORATORY E1
+Gavrilut Dragos,
+Programare in Python 5 CourseType.LABORATORY B1
+205 TimeInterval.T2
+Lazarescu Simona,
+Programare in Python 5 CourseType.LABORATORY B2
 205 TimeInterval.W2
-Liviu Ciortuz
-Machine Learning 5 CourseType.LABORATORY E2
-401 TimeInterval.M5
-Liviu Ciortuz
-Machine Learning 5 CourseType.LABORATORY E3
+Gavrilut Dragos,
+Programare in Python 5 CourseType.LABORATORY B3
+205 TimeInterval.W4
+Gavrilut Dragos,
+Programare in Python 5 CourseType.LABORATORY B4
+205 TimeInterval.W6
+Gavrilut Dragos,
+Programare in Python 5 CourseType.LABORATORY E1
+205 TimeInterval.T4
+Lazarescu Simona,
+Programare in Python 5 CourseType.LABORATORY E2
+205 TimeInterval.W3
+Gavrilut Dragos,
+Programare in Python 5 CourseType.LABORATORY E3
+205 TimeInterval.W5
+Gavrilut Dragos,
+Inteligenta Artificiala 5 CourseType.LECTURE A
+C112 TimeInterval.W3
+Raschip Madalina,Pistol Ionut Cristian,
+Inteligenta Artificiala 5 CourseType.LECTURE B
+C112 TimeInterval.T6
+Raschip Madalina,Pistol Ionut Cristian,
+Inteligenta Artificiala 5 CourseType.LECTURE E
+C112 TimeInterval.W2
+Raschip Madalina,Pistol Ionut Cristian,
+Inteligenta Artificiala 5 CourseType.LABORATORY A1
+205 TimeInterval.TH2
+Raschip Madalina,
+Inteligenta Artificiala 5 CourseType.LABORATORY A2
+205 TimeInterval.TH3
+Raschip Madalina,
+Inteligenta Artificiala 5 CourseType.LABORATORY A3
+205 TimeInterval.TH5
+Raschip Madalina,
+Inteligenta Artificiala 5 CourseType.LABORATORY A4
+205 TimeInterval.TH6
+Raschip Madalina,
+Inteligenta Artificiala 5 CourseType.LABORATORY A5
+205 TimeInterval.F2
+Raschip Madalina,
+Inteligenta Artificiala 5 CourseType.LABORATORY B1
+205 TimeInterval.TH1
+Raschip Madalina,
+Inteligenta Artificiala 5 CourseType.LABORATORY B2
+205 TimeInterval.TH4
+Raschip Madalina,
+Inteligenta Artificiala 5 CourseType.LABORATORY B3
+205 TimeInterval.F1
+Raschip Madalina,
+Inteligenta Artificiala 5 CourseType.LABORATORY B4
+205 TimeInterval.F3
+Raschip Madalina,
+Inteligenta Artificiala 5 CourseType.LABORATORY E1
+205 TimeInterval.F4
+Raschip Madalina,
+Inteligenta Artificiala 5 CourseType.LABORATORY E2
+205 TimeInterval.F5
+Raschip Madalina,
+Inteligenta Artificiala 5 CourseType.LABORATORY E3
+205 TimeInterval.F6
+Raschip Madalina,
+Securitatea Informatiei 5 CourseType.LECTURE A
+C112 TimeInterval.W4
+Tiplea Ferucio Laurentiu,
+Securitatea Informatiei 5 CourseType.LECTURE B
+C112 TimeInterval.TH3
+Tiplea Ferucio Laurentiu,
+Securitatea Informatiei 5 CourseType.LECTURE E
+C112 TimeInterval.TH1
+Tiplea Ferucio Laurentiu,
+Securitatea Informatiei 5 CourseType.LABORATORY A1
+401 TimeInterval.T5
+Tiplea Ferucio Laurentiu,
+Securitatea Informatiei 5 CourseType.LABORATORY A2
+401 TimeInterval.T6
+Tiplea Ferucio Laurentiu,
+Securitatea Informatiei 5 CourseType.LABORATORY A3
+401 TimeInterval.W5
+Tiplea Ferucio Laurentiu,
+Securitatea Informatiei 5 CourseType.LABORATORY A4
+401 TimeInterval.W6
+Tiplea Ferucio Laurentiu,
+Securitatea Informatiei 5 CourseType.LABORATORY A5
+401 TimeInterval.TH2
+Tiplea Ferucio Laurentiu,
+Securitatea Informatiei 5 CourseType.LABORATORY B1
 401 TimeInterval.W2
-Simionescu Cristian
+Tiplea Ferucio Laurentiu,
+Securitatea Informatiei 5 CourseType.LABORATORY B2
+401 TimeInterval.T2
+Tiplea Ferucio Laurentiu,
+Securitatea Informatiei 5 CourseType.LABORATORY B3
+401 TimeInterval.TH1
+Prelipcean Bogdan,
+Securitatea Informatiei 5 CourseType.LABORATORY B4
+401 TimeInterval.W4
+Prelipcean Bogdan,
+Securitatea Informatiei 5 CourseType.LABORATORY E1
+401 TimeInterval.W3
+Tiplea Ferucio Laurentiu,
+Securitatea Informatiei 5 CourseType.LABORATORY E2
+401 TimeInterval.T4
+Tiplea Ferucio Laurentiu,
+Securitatea Informatiei 5 CourseType.LABORATORY E3
+401 TimeInterval.TH4
+Tiplea Ferucio Laurentiu,
+Machine Learning 5 CourseType.LECTURE A
+C112 TimeInterval.F3
+Liviu Ciortuz,
+Machine Learning 5 CourseType.LECTURE B
+C112 TimeInterval.TH6
+Liviu Ciortuz,
+Machine Learning 5 CourseType.LECTURE E
+C112 TimeInterval.TH2
+Liviu Ciortuz,
+Machine Learning 5 CourseType.LABORATORY A1
+401 TimeInterval.TH3
+Liviu Ciortuz,
+Machine Learning 5 CourseType.LABORATORY A2
+401 TimeInterval.TH5
+Liviu Ciortuz,
+Machine Learning 5 CourseType.LABORATORY A3
+401 TimeInterval.TH6
+Simionescu Cristian,
+Machine Learning 5 CourseType.LABORATORY A4
+401 TimeInterval.F2
+Liviu Ciortuz,
+Machine Learning 5 CourseType.LABORATORY A5
+401 TimeInterval.F4
+Liviu Ciortuz,
+Machine Learning 5 CourseType.LABORATORY B1
+401 TimeInterval.F1
+Liviu Ciortuz,
+Machine Learning 5 CourseType.LABORATORY B2
+401 TimeInterval.F3
+Simionescu Cristian,
+Machine Learning 5 CourseType.LABORATORY B3
+401 TimeInterval.F5
+Liviu Ciortuz,
+Machine Learning 5 CourseType.LABORATORY B4
+401 TimeInterval.F6
+Liviu Ciortuz,
+Machine Learning 5 CourseType.LABORATORY E1
+403 TimeInterval.W5
+Liviu Ciortuz,
+Machine Learning 5 CourseType.LABORATORY E2
+403 TimeInterval.TH4
+Liviu Ciortuz,
+Machine Learning 5 CourseType.LABORATORY E3
+403 TimeInterval.T4
+Liviu Ciortuz,
